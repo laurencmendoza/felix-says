@@ -1,0 +1,111 @@
+/* global styles  */
+
+* {
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica;
+}
+
+/* element styles */
+
+.score {
+    margin: 0;
+    font-size: 25px;
+}
+
+/* layout */
+
+.simon {
+    display: grid;
+    margin: auto;
+    top: 50%;
+    width: 350px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    grid-template-areas:
+        "topleft topright"
+        "bottomleft bottomright";
+}
+
+footer {
+    display: flex;
+
+}
+
+/* headings */
+
+header > h1 {
+    margin: auto;
+    text-align: center;
+}
+
+/* buttons */
+
+#red-button {
+    background-color: red;
+    height: 175px;
+    width: 100%;
+    margin: 0 auto;
+    grid-area: topleft;
+}
+#green-button {
+    background-color: green;
+    height: 175px;
+    width: 100%;
+    margin: 0 auto;
+    grid-area: topright;
+}
+#yellow-button {
+    background-color: yellow;
+    height: 175px;
+    width: 100%;
+    margin: 0 auto;
+    grid-area: bottomright;
+}
+#blue-button {
+    
+    background-color: blue;
+    height: 175px;
+    width: 100%;
+    margin: 0 auto;
+    grid-area: bottomleft;
+}
+
+#red-button:hover {
+    background-color: pink;
+}
+#green-button:hover {
+    background-color: lightgreen;
+}
+#blue-button:hover {
+    background-color: lightblue;
+}
+#yellow-button:hover {
+    background-color: lightyellow;
+}
+
+#start-over-btn {
+    height: 50px;
+    font-size: 20px;
+    display: block;
+}
+/* images */
+
+img {
+    border-radius: 50%;
+    width: 175px;
+    margin: 0 0 0 15%;
+}
+
+
+
+
+
