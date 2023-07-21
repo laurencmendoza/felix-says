@@ -5,8 +5,6 @@ by: Lauren C. Mendoza
 I'm planning on recreating Simon, but with my cat, Felix, at the top, who will help deliver the sequence with his meows. 
 
 ## Screenshot for Wireframes
-
-![image for demonstration purposes](../assets/)
-
+![Felix Says wireframe](https://github.com/laurencmendoza/felix-says-project-demo/assets/137251999/887e604b-8dda-411d-86cf-ccfbcc02a1dc)
 ## Psuedocode
 
