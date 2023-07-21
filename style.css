@@ -1,20 +1,25 @@
 /* global styles  */
 
 * {
-    border: 0px solid red;
+    border: 1px solid red;
     box-sizing: border-box;
 }
 
+
 body {
     margin: 0;
-    font-family: Helvetica;
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* element styles */
 
 .score {
     margin: 0 50px 0 0;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -22,13 +27,13 @@ body {
 
 .simon {
     display: grid;
-    margin: auto;
-    top: 50%;
-    width: 350px;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
+    height: 250px;
+    width: 250px;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    /* justify-content: center; */
+    /* align-items: stretch; */
     border-radius: 50%;
     overflow: hidden;
     grid-template-areas:
@@ -39,45 +44,44 @@ body {
 footer {
     display: flex;
     justify-content: space-between;
-
+    height: 90px;
 }
 
 /* headings */
 
 header > h1 {
-    margin: auto;
+    margin: 50px 0 0 0;
     text-align: center;
+}
+
+header {
+    max-height: 200px;
 }
 
 /* buttons */
 
 #red-button {
     background-color: red;
-    height: 175px;
-    width: 100%;
-    margin: 0 auto;
+    /* width: 100%; */
+    margin: 0;
     grid-area: topleft;
 }
 #green-button {
     background-color: green;
-    height: 175px;
-    width: 100%;
-    margin: 0 auto;
+    /* width: 100%; */
+    margin: 0;
     grid-area: topright;
 }
 #yellow-button {
     background-color: yellow;
-    height: 175px;
-    width: 100%;
-    margin: 0 auto;
+    /* width: 100%; */
+    margin: 0;
     grid-area: bottomright;
 }
 #blue-button {
-    
     background-color: blue;
-    height: 175px;
-    width: 100%;
-    margin: 0 auto;
+    /* width: 100%; */
+    margin: 0;
     grid-area: bottomleft;
 }
 
@@ -96,19 +100,31 @@ header > h1 {
 
 #start-over-btn {
     height: 50px;
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     margin: 0 50px 0 50px;
     border-radius: 10px;
+    font-family: 'Orbitron', sans-serif
 }
 /* images */
 
 img {
     border-radius: 50%;
-    width: 175px;
+    width: 35vw;
     margin: 0 0 0 15%;
+    max-width: 100px; 
 }
 
+@media only screen and (min-width: 768px) {
+    .simon {
+        height: 375px;
+        width: 375px;
+    }
+    img {
+        max-width: 170px;
+    }
+
+}
 
 
 
