@@ -1,7 +1,10 @@
 # Demo Simon (Felix Says)
-A memory game to demonstrate my skills with HTML/CSS/JS
+
+'Felix Says' is a game based on the classic memory game 'Simon'. In 'Simon', players see a circle divided into four colored buttons- red, blue, yellow, and green. The colored buttons light up in a sequence, and the player is expected to repeat the sequence by pressing the correct buttons in the correct order. If the player repeats the sequence correctly, 'Simon' will add one to the sequence. The game ends once the player fails to repeat the sequence correctly. 'Felix Says' features Felix the black cat, who meows the sequence for the player to repeat on their own 'Simon' game look-alike. 
 
 ## Gameplay - Screenshots 
+
+
 
 ## Technologies Used
 
@@ -11,7 +14,7 @@ A memory game to demonstrate my skills with HTML/CSS/JS
 
 ## Key Resources
 
-1. 
+1. []
 
 ## Getting Started
 
