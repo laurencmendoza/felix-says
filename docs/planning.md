@@ -15,18 +15,17 @@ I'm planning on recreating Simon, but with my cat, Felix, at the top, who will h
    - green button
    - yellow button
    - blue button
-- Initial state variables - variables that will always be the same at the start of the game
-   - score: 0
-- Length of time for player to input the next element of the sequence (5 seconds)
+- State variables - variables that will always be the same at the start of the game
+   - score
+   - player sequence
+   - computer sequence
 - Image of Felix with his mouth closed
 - Image of Felix with his mouth open
 
 2.  Define required variables used to track the state of the game
 
-- Score- keeping track of the longest sequence the player has successfully repeated
-
+- Score- the length of the last sequence the player has successfully repeated
 - Computer sequence- the sequence the computer demonstrates for the player to copy (an array)
-
 - Player sequence- the sequence of player input (an array)
 
 3.  Store elements on the page that will be accessed in code more than once in variables to make code more concise, readable and performant.
@@ -47,8 +46,9 @@ I'm planning on recreating Simon, but with my cat, Felix, at the top, who will h
 
 - Initialize the state variables
    - score: 0
-   - computer sequence (empty array)
-- Render those values to the page 
+   - computer sequence = empty array
+   - player sequence = empty array
+- Render score value to the page
 - Add 1 random value to the computer sequence array (red, green, yellow, blue)
 - Play the computer sequence
    - Change pic of Felix to one with his mouth open
@@ -57,15 +57,15 @@ I'm planning on recreating Simon, but with my cat, Felix, at the top, who will h
 
 5.  Handle a player clicking a button
 
-- Once the player clicks a button, their choice gets added to the player's sequence (an array)
-- Then, their array gets compared the computer's sequence (another array) at the current index
+- Once the player clicks a button, their choice gets added to the player's sequence (an array storing their choices)
+- Then, this array gets compared the relevant values of the computer's sequence 
+   - Comparing only values of the computer sequence up to the length of the current player sequence array
 - If the player sequence does not match the computer sequence, they lose (game over screen)
-- Once the length of the player sequence and the content of the player sequence matches the computer sequence, the computer will repeat the sequence, and add one new random value to the sequence
-
+- Once the player's sequence matches the whole computer sequence, the computer will add one new random value to the sequence, and then repeat the sequence
 
 6.  Handle a player clicking the start over button
 
-- If the player clicks the start over button, the game will reload
+- If the player clicks the start over button, the game will reload (invoke the init() function)
 
 <!-- Extra Information for Psuedo Code
 
@@ -77,17 +77,15 @@ d. how will the player restart the game?
 
    a & b: User starts by watching the computer sequence, then repeats the sequence by pressing the buttons. 
    
-   c: Player will lose if they enter the wrong sequence or spend too long finishing the sequence (after each correct button press a timer will check if they will enter next part of the sequence within 5 seconds)
+   c: Player will lose if they enter the wrong sequence. 
 
-   d: Player will restart the game by clicking "Start Over" button
+   d: Player will restart the game by clicking "Start Over" button. 
 
 2. What data will you need to keep track of throughout your game?
 
    The computer sequence
    The player's inputted sequence
    The score (length of the last sequence correctly input by the player)
-   The length of the computer sequence
-   The length of the player's sequence
 
 3. Which elements of the game will require event listeners?
 
@@ -98,17 +96,11 @@ d. how will the player restart the game?
 
    a. When the player hits a button, that color is added to the player's sequence array. 
 
-   b. Then, the player sequence array is compared to the computer sequence array at the current index (starting at 0)
+   b. Then, the player sequence array is compared to the computer sequence array, only looking at the values in the computer sequences array up to the length of current player sequence array
 
-   c. If the arrays do not match at the current index, then the player gets a game over message
+   c. If the arrays do not match, then the player gets a game over message
 
-   d. If the arrays do match, a timer is set for 5 seconds, and if the player does not add to their sequence within the time limit, the player gets a game over message
-
-   e. If the player hits another button within the 5 seconds, then the process repeats from a. 
-
-   f. If the length of the player sequence array is equal to the computer sequence array, then the score is equal to the length of the computer sequence array. 
-
-   g. Then the computer plays the same sequence but adds one new random value to the end. Then the process starts over at a until f occurs again. 
+   f. If the player sequence array is equal to the total computer sequence array, then add one to the score, reset the player sequence array, and add a new randome value to the computer sequence array
 
 -->
 

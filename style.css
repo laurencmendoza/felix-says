@@ -19,7 +19,7 @@ body {
 
 .score {
     margin: 0 50px 0 0;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -31,15 +31,22 @@ body {
     height: 250px;
     width: 250px;
     grid-template-columns: 1fr 1fr;
-    /* grid-template-rows: 1fr 1fr; */
-    /* justify-content: center; */
-    /* align-items: stretch; */
-    border-radius: 50%;
+    /* comment below out if you want to go back to squares */
+    /* border-radius: 50%; */
     overflow: hidden;
     grid-template-areas:
         "topleft topright"
         "bottomleft bottomright";
+    /* padding: 10px; */
 }
+
+.simon > button {
+    border: none;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
 
 footer {
     display: flex;
@@ -61,50 +68,53 @@ header {
 /* buttons */
 
 .red {
-    background-color: red;
-    /* width: 100%; */
-    margin: 0;
+    background-color: rgb(236,0,33);
     grid-area: topleft;
 }
 .green {
-    background-color: green;
-    /* width: 100%; */
-    margin: 0;
+    background-color: rgb(85,180,155);
     grid-area: topright;
 }
 .yellow {
-    background-color: yellow;
-    /* width: 100%; */
-    margin: 0;
+    background-color: rgb(255,210,95);
     grid-area: bottomright;
 }
 .blue {
-    background-color: blue;
-    /* width: 100%; */
-    margin: 0;
+    background-color: rgb(43,152,208);
     grid-area: bottomleft;
 }
-
 .red:hover {
     background-color: pink;
 }
 .green:hover {
-    background-color: lightgreen;
+    background-color: rgb(155,245,210);
 }
 .blue:hover {
     background-color: lightblue;
 }
 .yellow:hover {
-    background-color: lightyellow;
+    background-color: rgb(255,245,150);
 }
 #start-over-btn:hover {
     background-color: darkgray;
     color: white;
 }
+.red:active {
+    background-color: pink;
+}
+.green:active {
+    background-color: rgb(155,245,210);
+}
+.blue:active {
+    background-color: lightblue;
+}
+.yellow:active {
+    background-color: rgb(255,245,150);
+}
 
 #start-over-btn {
     height: 50px;
-    font-size: 18px;
+    font-size: 20px;
     display: block;
     margin: 0 50px 0 50px;
     border-radius: 10px;
@@ -118,6 +128,26 @@ img {
     max-width: 100px; 
 }
 
+/* highlight buttons */
+
+.highlightred {
+    background-color: pink;
+}
+
+.highlightgreen {
+    background-color: lightgreen;
+}
+
+.highlightyellow {
+    background-color: lightyellow;
+}
+
+.highlightblue {
+    background-color: lightblue;
+}
+
+/* media queries */
+
 @media only screen and (min-width: 768px) {
     .simon {
         height: 375px;
@@ -126,6 +156,15 @@ img {
     img {
         max-width: 170px;
         margin: 0 0 0 10%;
+    }
+    header > h1 {
+        font-size: 3.5rem;
+    }
+    #start-over-btn {
+        font-size: 28px;
+    }
+    .score {
+        font-size: 28px;
     }
 
 }
@@ -137,6 +176,7 @@ img {
     }
     img {
         max-width: 100px;
+        margin: 0 0 0 15%;
     }
 }
 

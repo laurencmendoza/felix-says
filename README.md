@@ -14,7 +14,9 @@
 
 ## Key Resources
 
-1. 
+1. [MDN](https://developer.mozilla.org/en-US/)
+2. [W3Schools](https://www.w3schools.com/)
+3. [freesimon.org](https://freesimon.org)
 
 ## Getting Started
 
