@@ -60,41 +60,41 @@ header {
 
 /* buttons */
 
-#red-button {
+.red {
     background-color: red;
     /* width: 100%; */
     margin: 0;
     grid-area: topleft;
 }
-#green-button {
+.green {
     background-color: green;
     /* width: 100%; */
     margin: 0;
     grid-area: topright;
 }
-#yellow-button {
+.yellow {
     background-color: yellow;
     /* width: 100%; */
     margin: 0;
     grid-area: bottomright;
 }
-#blue-button {
+.blue {
     background-color: blue;
     /* width: 100%; */
     margin: 0;
     grid-area: bottomleft;
 }
 
-#red-button:hover {
+.red:hover {
     background-color: pink;
 }
-#green-button:hover {
+.green:hover {
     background-color: lightgreen;
 }
-#blue-button:hover {
+.blue:hover {
     background-color: lightblue;
 }
-#yellow-button:hover {
+.yellow:hover {
     background-color: lightyellow;
 }
 #start-over-btn:hover {
@@ -128,6 +128,16 @@ img {
         margin: 0 0 0 10%;
     }
 
+}
+
+@media only screen and (max-height: 675px) {
+    .simon {
+        height: 250px;
+        width: 250px;
+    }
+    img {
+        max-width: 100px;
+    }
 }
 
 
