@@ -1,7 +1,7 @@
 /* global styles  */
 
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     box-sizing: border-box;
 }
 
@@ -97,6 +97,10 @@ header {
 #yellow-button:hover {
     background-color: lightyellow;
 }
+#start-over-btn:hover {
+    background-color: darkgray;
+    color: white;
+}
 
 #start-over-btn {
     height: 50px;
@@ -109,7 +113,6 @@ header {
 /* images */
 
 img {
-    border-radius: 50%;
     width: 35vw;
     margin: 0 0 0 15%;
     max-width: 100px; 

@@ -18,6 +18,8 @@ I'm planning on recreating Simon, but with my cat, Felix, at the top, who will h
 - Initial state variables - variables that will always be the same at the start of the game
    - score: 0
 - Length of time for player to input the next element of the sequence (5 seconds)
+- Image of Felix with his mouth closed
+- Image of Felix with his mouth open
 
 2.  Define required variables used to track the state of the game
 
@@ -49,6 +51,8 @@ I'm planning on recreating Simon, but with my cat, Felix, at the top, who will h
 - Render those values to the page 
 - Add 1 random value to the computer sequence array (red, green, yellow, blue)
 - Play the computer sequence
+   - Change pic of Felix to one with his mouth open
+   - Show a word bubble with "meow" written in color of current computer sequence value
 - Wait for the user to click a button
 
 5.  Handle a player clicking a button
