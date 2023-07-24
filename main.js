@@ -1,11 +1,3 @@
-console.log('JS:loaded')
-
-
-
-
-
-
-
 /*----- constants -----*/ 
 
 // const redBtnAudio; 
@@ -23,9 +15,7 @@ const options = ['red', 'green', 'yellow', 'blue']
 let score; 
 
 let computerSequence;
-let playerSequence = []
-
-
+let playerSequence;
 
 /*----- cached elements -----*/ 
 const redBtnEl = document.querySelector('.red')
@@ -33,7 +23,6 @@ const greenBtnEl = document.querySelector('.green')
 const yellowBtnEl = document.querySelector('.yellow')
 const blueBtnEl = document.querySelector('.blue')
 const simonBtnEls = document.querySelectorAll('.simon > button')
-
 
 
 const startOverBtnEl = document.querySelector('#start-over-btn')
@@ -61,6 +50,7 @@ function init() {
         btn.addEventListener('click', handleClick)
     })
     computerSequence = []
+    playerSequence = []
     addToComputerSequence()
     renderScore()
 
@@ -70,32 +60,8 @@ function init() {
 
 function handleClick(evt) {
     let playerChoice = evt.target.classList.value
-    
-    let computerIdx = 0
-    // If the player picks the correct color, add to array. If not, game over.
-    if (playerChoice === computerSequence[computerIdx]) {
-        
-        console.log('correct!')
-        playerSequence.push(playerChoice)
-        console.log(`Player's Sequence: ${playerSequence}`) 
-        computerIdx = computerIdx + 1
-    } else {
-        console.log(`Game over computer index is at ${computerIdx}`)
-        init()
-    }
-
-    
-    if (playerSequence.length === computerSequence.length) {
-        console.log(`Adding a new value to computerSequence`)
-        score++
-        renderScore()
-        addToComputerSequence()
-        playerSequence = []
-        console.log(playerSequence)
-    }
+    compareSequences(playerChoice, 0)
 }
-
-console.log(Math.floor(Math.random() * 4)) // generates random number 0-3
 
 function addToComputerSequence() {
     let randomIndex = Math.floor(Math.random() *4)
@@ -121,9 +87,30 @@ function renderComputerSequence() {
     }
 }
 
-function compareSequences() {
-    for (let i=0; i<playerSequence.length; i++) {
+function compareSequences(color, index) {
+    // If the player's choice is equal to the computer sequence 
+    
 
+    // if the player has completed all of the computersequence, add 1 to the score, render the score, and add to the computer sequence
+
+
+    // If the player picks the correct color, add to array. If not, game over.
+    if (color === computerSequence[index]) {
+        playerSequence.push(color)
+        console.log(`Player's Sequence: ${playerSequence}`) 
+        index++
+        console.log(`current index is ${index}`)
+    } else {
+        console.log(`Game over`)
+        init()
+    }
+
+    if (playerSequence.length === computerSequence.length) {
+        score++
+        renderScore()
+        addToComputerSequence()
+        playerSequence = []
+        console.log(`Player sequence should be reset: ${playerSequence}`)
     }
 
 }

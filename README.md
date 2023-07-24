@@ -14,15 +14,15 @@
 
 ## Key Resources
 
-1. []
+1. 
 
 ## Getting Started
 
-instructions for accessing the deployed game, or ways to contribute to an open source game.
+Click here to test the game!
 
 ## Future Features
 
-1. Explore Canvas for X feature of game
+1. Add "highest score" on the page to show a value equal to the longest sequence the player has correctly repeated
 2. Add audio...
 3. etc. 
 <!-- A README.md file with these sections: 
