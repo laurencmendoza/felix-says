@@ -20,18 +20,18 @@ const options = ['red', 'green', 'yellow', 'blue']
 
 /*----- state variables -----*/ 
 
-let score = 0
+let score; 
 
-let computerSequence = []
+let computerSequence;
 let playerSequence = []
 
 
 
 /*----- cached elements -----*/ 
-const redBtnEl = document.querySelector('#red-button')
-const greenBtnEl = document.querySelector('#green-button')
-const yellowBtnEl = document.querySelector('#yellow-button')
-const blueBtnEl = document.querySelector('#blue-button')
+const redBtnEl = document.querySelector('.red')
+const greenBtnEl = document.querySelector('.green')
+const yellowBtnEl = document.querySelector('.yellow')
+const blueBtnEl = document.querySelector('.blue')
 const simonBtnEls = document.querySelectorAll('.simon > button')
 
 
@@ -44,22 +44,6 @@ const felixImgEl = document.querySelector('#felix-img')
 
 /*----- event listeners -----*/ 
 
-// redBtnEl.addEventListener('click', function() {
-//     console.log('Red clicked')
-// })
-// greenBtnEl.addEventListener('click', function() {
-//     console.log('Green clicked')
-// })
-// yellowBtnEl.addEventListener('click', function() {
-//     console.log('Yellow clicked')
-// })
-// blueBtnEl.addEventListener('click', function() {
-//     console.log('Blue clicked')
-// })
-
-//making the above eventlisteners more DRY
-
-
 startOverBtnEl.addEventListener('click', function() {
     console.log('Start over button clicked')
     init()
@@ -68,7 +52,7 @@ startOverBtnEl.addEventListener('click', function() {
 /*----- functions -----*/ 
 
 function init() {
-    scoreEl.innerHTML=`Score: ${score}`
+    score = 0;
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
     // TO DO: Add the line of code below to render computer sequence function
     // felixImgEl.setAttribute('src', imgFelixMouthOpen)
@@ -76,18 +60,39 @@ function init() {
     simonBtnEls.forEach(function(btn) {
         btn.addEventListener('click', handleClick)
     })
-
+    computerSequence = []
     addToComputerSequence()
+    renderScore()
+
+    // renderComputerSequence()
 
 }
 
 function handleClick(evt) {
-    let btnColor = evt.target.classList.value
-    playerSequence.push(btnColor)
+    let playerChoice = evt.target.classList.value
+    
+    let computerIdx = 0
+    // If the player picks the correct color, add to array. If not, game over.
+    if (playerChoice === computerSequence[computerIdx]) {
+        
+        console.log('correct!')
+        playerSequence.push(playerChoice)
+        console.log(`Player's Sequence: ${playerSequence}`) 
+        computerIdx = computerIdx + 1
+    } else {
+        console.log(`Game over computer index is at ${computerIdx}`)
+        init()
+    }
 
-    console.log(`Player's Sequence: ${playerSequence}`) 
-
-    // need a compare function 
+    
+    if (playerSequence.length === computerSequence.length) {
+        console.log(`Adding a new value to computerSequence`)
+        score++
+        renderScore()
+        addToComputerSequence()
+        playerSequence = []
+        console.log(playerSequence)
+    }
 }
 
 console.log(Math.floor(Math.random() * 4)) // generates random number 0-3
@@ -97,10 +102,37 @@ function addToComputerSequence() {
     let computerChoice = options[randomIndex]
     computerSequence.push(computerChoice)
     console.log(computerSequence)
-    // pick a random color
-    // add random color to sequence
 }
 
+function renderComputerSequence() {
+    for (let i=0; i<computerSequence.length; i++) {
+        console.log(computerSequence)
 
+        // TO DO: need to do this for one second
+        if (computerSequence[i] === 'red') {
+            redBtnEl.style.backgroundColor = 'pink' 
+        } else if (computerSequence[i] === 'green') {
+            greenBtnEl.style.backgroundColor = 'lightgreen'
+        } else if (computerSequence[i] === 'yellow') {
+            yellowBtnEl.style.backgroundColor = 'lightyellow'
+        } else {
+            blueBtnEl.style.backgroundColor = 'lightblue'
+        }
+    }
+}
+
+function compareSequences() {
+    for (let i=0; i<playerSequence.length; i++) {
+
+    }
+
+}
+
+function renderScore() {
+    scoreEl.innerHTML=`Score: ${score}`
+}
+
+// let flashingGreen = setInterval(flashGreen, 1000)
+// clearInterval(flashingGreen)
 
 init()
