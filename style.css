@@ -1,7 +1,7 @@
 /* global styles  */
 
 * {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     box-sizing: border-box;
 }
 
@@ -114,7 +114,7 @@ header {
 
 img {
     width: 35vw;
-    margin: 0 0 0 15%;
+    margin: 50px 0 0 15%;
     max-width: 100px; 
 }
 
@@ -125,6 +125,7 @@ img {
     }
     img {
         max-width: 170px;
+        margin: 0 0 0 10%;
     }
 
 }
