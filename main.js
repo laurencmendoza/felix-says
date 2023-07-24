@@ -14,8 +14,8 @@ const options = ['red', 'green', 'yellow', 'blue']
 
 let score; 
 
-let computerSequence;
-let playerSequence;
+let computerSeq;
+let playerSeq;
 
 /*----- cached elements -----*/ 
 const redBtnEl = document.querySelector('.red')
@@ -49,10 +49,10 @@ function init() {
     simonBtnEls.forEach(function(btn) {
         btn.addEventListener('click', handleClick)
     })
-    computerSequence = []
-    playerSequence = []
+    computerSeq = []
+    playerSeq = []
     addToComputerSequence()
-    renderScore()
+    render()
 
     // renderComputerSequence()
 
@@ -60,65 +60,75 @@ function init() {
 
 function handleClick(evt) {
     let playerChoice = evt.target.classList.value
-    compareSequences(playerChoice, 0)
+
+    // add playerChoice to playerSequence array
+    playerSeq.push(playerChoice)
+
+    // invoke compareSequences function with argument playerSequence
+    compareSequences(playerSeq)
 }
 
 function addToComputerSequence() {
     let randomIndex = Math.floor(Math.random() *4)
     let computerChoice = options[randomIndex]
-    computerSequence.push(computerChoice)
-    console.log(computerSequence)
+    computerSeq.push(computerChoice)
+    console.log(computerSeq)
 }
 
-function renderComputerSequence() {
-    for (let i=0; i<computerSequence.length; i++) {
-        console.log(computerSequence)
 
-        // TO DO: need to do this for one second
-        if (computerSequence[i] === 'red') {
-            redBtnEl.style.backgroundColor = 'pink' 
-        } else if (computerSequence[i] === 'green') {
-            greenBtnEl.style.backgroundColor = 'lightgreen'
-        } else if (computerSequence[i] === 'yellow') {
-            yellowBtnEl.style.backgroundColor = 'lightyellow'
-        } else {
-            blueBtnEl.style.backgroundColor = 'lightblue'
-        }
-    }
-}
+// New idea for compareSequences to compare playerSequence array with computerSequence array from index 0 to computerSequence[length of playerSequence array]
 
-function compareSequences(color, index) {
-    // If the player's choice is equal to the computer sequence 
-    
+function compareSequences(arr) {
+    let playerSeqString = arr.toString()
+    let comparedComputerSeq = computerSeq.slice(0, arr.length)
+    let totalComputerSeqString = computerSeq.toString()
+    let computerSeqString = comparedComputerSeq.toString()
 
-    // if the player has completed all of the computersequence, add 1 to the score, render the score, and add to the computer sequence
-
-
-    // If the player picks the correct color, add to array. If not, game over.
-    if (color === computerSequence[index]) {
-        playerSequence.push(color)
-        console.log(`Player's Sequence: ${playerSequence}`) 
-        index++
-        console.log(`current index is ${index}`)
+    if (playerSeqString === computerSeqString) {
+        console.log('correct!')
+        console.log(`player sequence: ${playerSeq}`)
     } else {
-        console.log(`Game over`)
+        console.log('game over')
         init()
     }
 
-    if (playerSequence.length === computerSequence.length) {
-        score++
-        renderScore()
+    if (playerSeqString === totalComputerSeqString) {
+        console.log('leveling up')
+        score ++
+        render()
         addToComputerSequence()
-        playerSequence = []
-        console.log(`Player sequence should be reset: ${playerSequence}`)
+        playerSeq = []
+        console.log(`reset player sequence: ${playerSeq}`)
     }
 
+}
+
+
+function render() {
+    renderScore()
+    // renderComputerSequence()
 }
 
 function renderScore() {
     scoreEl.innerHTML=`Score: ${score}`
 }
 
+function renderComputerSequence() {
+    for (let i=0; i<computerSeq.length; i++) {
+        console.log(computerSeq)
+
+        // TO DO: need to do this for one second
+        if (computerSeq[i] === 'red') {
+            redBtnEl.style.backgroundColor = 'pink' 
+        } else if (computerSeq[i] === 'green') {
+            greenBtnEl.style.backgroundColor = 'lightgreen'
+        } else if (computerSeq[i] === 'yellow') {
+            yellowBtnEl.style.backgroundColor = 'lightyellow'
+        } else {
+            blueBtnEl.style.backgroundColor = 'lightblue'
+        }
+    }
+}
 // let flashingGreen = setInterval(flashGreen, 1000)
 // clearInterval(flashingGreen)
 
