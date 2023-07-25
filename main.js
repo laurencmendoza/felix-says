@@ -174,7 +174,20 @@ function renderComputerSequence() {
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
     function logComputerSeq() {
+        meowImgEl.style.visibility = 'visible'
+        //TO DO: right here, need to have buttons do something instead of just print value to the console
+        
         console.log(computerSeq[index])
+        if (computerSeq[index] === 'red') {
+            meowImgEl.setAttribute('src', redMeow)
+        } else if (computerSeq[index] === 'green') {
+            meowImgEl.setAttribute('src', greenMeow)
+        } else if (computerSeq[index] === 'yellow') {
+            meowImgEl.setAttribute('src', yellowMeow)
+        } else if (computerSeq[index] === 'blue') {
+            meowImgEl.setAttribute('src', blueMeow)
+        }
+        //
         index++
         if (index > computerSeq.length - 1) {
             clearInterval(computerSeqInterval)
