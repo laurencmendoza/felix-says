@@ -35,15 +35,6 @@ const scoreEl = document.querySelector('.score')
 const felixImgEl = document.querySelector('#felix-img')
 const meowImgEl = document.querySelector('#meow')
 
-/*----- event listeners -----*/ 
-
-// startOverBtnEl.addEventListener('click', function() {
-//     console.log('Start over button clicked')
-//     init()
-// })
-
-
-
 /*----- functions -----*/ 
 
 function init() {
@@ -53,7 +44,6 @@ function init() {
     startOverBtnEl.addEventListener('click', handleStart)
 }
 
-// when clicking start or start over, need this function to do the same as init function AS WELL AS render computer sequence
 function handleStart() {
     score = 0
     renderScore()
@@ -72,7 +62,7 @@ function handleStart() {
     computerSeq = []
     playerSeq = []
     addToComputerSequence()
-    renderComputerSequence(computerSeq)
+    renderComputerSequence()
     startOverBtnEl.textContent = 'Start Over'
 }
 
@@ -85,6 +75,7 @@ function handleStartOver() {
 function handleClick(evt) {
     let playerChoice = evt.target.classList.value
     playerSeq.push(playerChoice)
+    console.log(`player's choice: ${playerChoice}`)
     compareSequences(playerSeq)
 }
 
@@ -92,7 +83,7 @@ function addToComputerSequence() {
     let randomIndex = Math.floor(Math.random() *4)
     let computerChoice = options[randomIndex]
     computerSeq.push(computerChoice)
-    // console.log(`current computer seq: ${computerSeq}`)
+    console.log(`current computer seq: ${computerSeq}`)
 }
 
 function compareSequences(arr) {
@@ -127,7 +118,7 @@ function compareSequences(arr) {
 
 function render() {
     renderScore()
-    renderComputerSequence(computerSeq)
+    // renderComputerSequence(computerSeq)
 }
 
 function renderScore() {
@@ -137,24 +128,47 @@ function renderScore() {
 function renderGameOver() {
     // TO DO: change from yellowMeow to a game over meow
     meowImgEl.setAttribute('src', yellowMeow)
-    // have start over button change to init??
 }
 
-function renderComputerSequence(arr) {
-    let index = -1 // starting with non-exist array value to get a delay before starting game
-    function iterate() {
-        if (index < arr.length) {
-            // for now, just want to see the array printed in console
-            // TO DO: instead of console.log, set colors
-            console.log(arr[index])
-            // once index value is reached, set that color to a light version and all other colors to their normal color
-            index++
-            setTimeout(iterate, 1000);
-        }
-    }
-    iterate()
+function renderComputerSequence() {
+    
 }
 
+// function renderComputerSequence(arr) {
+//     console.log(computerSeq)
+//     const interval = 1000;
+
+//     for (i=0; i<arr.length; i++) {
+//         console.log(arr[i])
+//         let color = arr[i]
+//         setTimeout(function() {
+//             highlightButton(color)
+//         }, interval)
+//     }
+        // if (index < arr.length) {
+
+        //     // for now, just want to see the array printed in console
+        //     console.log(arr[index])
+        //     // TO DO: instead of console.log, set animation
+        //     let color = arr[index]
+
+        //     setTimeout(function() {
+        //         highlightButton(color)
+        //         index++
+        //         // iterate()
+
+        //     }, interval*(index || 1))
+        // }
+// }
+
+// function highlightButton(color) {
+//     const btnSelected = document.querySelector(`.${color}`)
+//     console.log(color,  btnSelected)
+//     btnSelected.classList.add('highlight')
+//     setTimeout(function() {
+//         btnSelected.classList.remove('highlight')
+//     }, 800)
+// }
 
 
 

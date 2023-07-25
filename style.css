@@ -122,6 +122,10 @@ header {
     background-color: var(--light-yellow);
 }
 
+.highlight {
+    background-color: red !important;
+}
+
 #start-over-btn {
     height: 50px;
     font-size: 18px;
@@ -143,6 +147,68 @@ header {
     margin: 30px 5% 0 0;
 }
 
+/* animations */
+
+.animated-red {
+    animation: glow-red 1s ease-in-out;
+}
+.animate-green {
+    animation: glow-green 1s ease-in-out;
+}
+.animate-yellow {
+    animation: glow-yellow 1s ease-in-out;
+}
+.animate-blue {
+    animation: glow-blue 1s ease-in-out;
+}
+
+@keyframes glow-red {
+    0% {
+        background-color: var(--red);
+    }
+    50% {
+        background-color: var(--light-red);
+    }
+    100% {
+        background-color: var(--red);
+    }
+}
+
+@keyframes glow-green {
+    0% {
+        background-color: var(--green);
+    }
+    50% {
+        background-color: var(--light-green);
+    }
+    100% {
+        background-color: var(--green);
+    }
+}
+
+@keyframes glow-yellow {
+    0% {
+        background-color: var(--yellow);
+    }
+    50% {
+        background-color: var(--light-yellow);
+    }
+    100% {
+        background-color: var(--yellow);
+    }
+}
+
+@keyframes glow-blue {
+    0% {
+        background-color: var(--blue);
+    }
+    50% {
+        background-color: var(--light-blue);
+    }
+    100% {
+        background-color: var(--blue);
+    }
+}
 
 /* media queries */
 
