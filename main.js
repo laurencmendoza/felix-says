@@ -62,13 +62,21 @@ function handleStart() {
     computerSeq = []
     playerSeq = []
     addToComputerSequence()
+    
     // renderComputerSequence(computerSeq)
     startOverBtnEl.textContent = 'Start Over'
-}
 
-function handleStartOver() {
-    if (startOverBtnEl.textContent === 'Start Over') {
-        init()
+    // trying to rendercomputersequence in console to start
+    let index = 0
+
+    const computerSeqInterval = setInterval(renderComputerSequence, 1000)
+
+    function renderComputerSequence() {
+        console.log(computerSeq[index])
+        index++
+        if (index > computerSeq.length - 1) {
+            clearInterval(computerSeqInterval)
+        }
     }
 }
 
@@ -92,7 +100,7 @@ function compareSequences(arr) {
     let totalComputerSeqString = computerSeq.toString()
     let computerSeqString = comparedComputerSeq.toString()
 
-    // comparing current playerSeq to relevant computerSeq elements
+    // comparing current playerSeq to only relevant computerSeq elements
     if (playerSeqString === computerSeqString) {
         console.log('correct')
     } else {
@@ -106,13 +114,25 @@ function compareSequences(arr) {
         // init()
     }
 
-    // once playerSeq is equal to the total computerSeq, add 1 to score and add value to computerSeq
+    // once playerSeq is equal to the total computerSeq, add 1 to score and add value to computerSeq, and empty the playerSeq array
     if (playerSeqString === totalComputerSeqString) {
         console.log('leveling up')
         score ++
         render()
         addToComputerSequence()
         playerSeq = []
+
+        let index = 0
+
+        const computerSeqInterval = setInterval(renderComputerSequence, 1000)
+
+        function renderComputerSequence() {
+            console.log(computerSeq[index])
+            index++
+            if (index > computerSeq.length - 1) {
+            clearInterval(computerSeqInterval)
+            }
+        }
     }
 }
 
