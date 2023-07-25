@@ -57,6 +57,7 @@ function init() {
     playerSeq = []
     addToComputerSequence()
     render()
+    
 }
 
 function handleClick(evt) {
@@ -69,7 +70,7 @@ function addToComputerSequence() {
     let randomIndex = Math.floor(Math.random() *4)
     let computerChoice = options[randomIndex]
     computerSeq.push(computerChoice)
-    console.log(`current computer seq: ${computerSeq}`)
+    // console.log(`current computer seq: ${computerSeq}`)
 }
 
 function compareSequences(arr) {
@@ -98,43 +99,36 @@ function compareSequences(arr) {
 
 function render() {
     renderScore()
-    // renderComputerSequence()
+    renderComputerSequence(computerSeq)
 }
 
 function renderScore() {
     scoreEl.innerHTML=`Score: ${score}`
 }
 
-// function renderComputerSequence() {
-//     for (let i=0; i<computerSeq.length; i++) {
-//         console.log(computerSeq)
+function renderComputerSequence(arr) {
+    let index = 0
+    function iterate() {
+        if (index < arr.length) {
+            // for now, just want to see the array printed in console
+            // TO DO: instead of console.log, set colors
+            console.log(arr[index])
 
-//         // TO DO: need to do this for one second
-//         if (computerSeq[i] === 'red') {
-//             redBtnEl.style.backgroundColor = 'pink' 
-//         } else if (computerSeq[i] === 'green') {
-//             greenBtnEl.style.backgroundColor = 'lightgreen'
-//         } else if (computerSeq[i] === 'yellow') {
-//             yellowBtnEl.style.backgroundColor = 'lightyellow'
-//         } else {
-//             blueBtnEl.style.backgroundColor = 'lightblue'
-//         }
-//     }
+            if (arr[index] === 'red') {
+                redBtnEl.backgroundColor = ''
+            }
 
-//  //need to make sure the player clicks aren't handled until animation is complete
-// }
 
-const btnFlashing = [
-    {color: 'pink', time: 1000}, 
-    {color: 'lightgreen', time: 1000}, 
-    {color: 'lightyellow', time: 1000}, 
-    {color: 'lightblue', time: 1000}
-]
 
-let curBtnIdx = 0; 
-
-function renderComputerSequence(cb) {
-
+            index++
+            setTimeout(iterate, 1000);
+        }
+    }
+    iterate()
 }
+
+
+
+
 
 init()
