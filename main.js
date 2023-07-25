@@ -62,7 +62,7 @@ function handleStart() {
     computerSeq = []
     playerSeq = []
     addToComputerSequence()
-    renderComputerSequence()
+    // renderComputerSequence(computerSeq)
     startOverBtnEl.textContent = 'Start Over'
 }
 
@@ -127,12 +127,13 @@ function renderScore() {
 
 function renderGameOver() {
     // TO DO: change from yellowMeow to a game over meow
+    felixImgEl.setAttribute('src', imgFelixMouthOpen)
     meowImgEl.setAttribute('src', yellowMeow)
 }
 
-function renderComputerSequence() {
-    
-}
+
+
+
 
 // function renderComputerSequence(arr) {
 //     console.log(computerSeq)
@@ -145,20 +146,15 @@ function renderComputerSequence() {
 //             highlightButton(color)
 //         }, interval)
 //     }
-        // if (index < arr.length) {
+//     if (i < arr.length) {
+//         console.log(arr[i])
+//         let color = arr[index]
 
-        //     // for now, just want to see the array printed in console
-        //     console.log(arr[index])
-        //     // TO DO: instead of console.log, set animation
-        //     let color = arr[index]
-
-        //     setTimeout(function() {
-        //         highlightButton(color)
-        //         index++
-        //         // iterate()
-
-        //     }, interval*(index || 1))
-        // }
+//         setTimeout(function() {
+//             highlightButton(color)
+//             index++
+//             }, interval*(i|| 1))
+//         }
 // }
 
 // function highlightButton(color) {
