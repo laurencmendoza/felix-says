@@ -15,6 +15,18 @@ body {
     justify-content: space-between;
 }
 
+/* color variables */
+* {
+    --red: rgb(236,0,33);
+    --green: rgb(85,180,155);
+    --yellow: rgb(255,210,95);
+    --blue: rgb(43,152,208);
+    --light-red: pink;
+    --light-green: rgb(155,245,210);
+    --light-yellow: rgb(255,245,150);
+    --light-blue: lightblue;
+}
+
 /* element styles */
 
 .score {
@@ -66,48 +78,48 @@ header {
 /* buttons */
 
 .red {
-    background-color: rgb(236,0,33);
+    background-color: var(--red);
     grid-area: topleft;
 }
 .green {
-    background-color: rgb(85,180,155);
+    background-color: var(--green);
     grid-area: topright;
 }
 .yellow {
-    background-color: rgb(255,210,95);
+    background-color: var(--yellow);
     grid-area: bottomright;
 }
 .blue {
-    background-color: rgb(43,152,208);
+    background-color: var(--blue);
     grid-area: bottomleft;
 }
 .red:hover {
-    background-color: pink;
+    background-color: var(--light-red);
 }
 .green:hover {
-    background-color: rgb(155,245,210);
+    background-color: var(--light-green);
 }
 .blue:hover {
-    background-color: lightblue;
+    background-color: var(--light-blue);
 }
 .yellow:hover {
-    background-color: rgb(255,245,150);
+    background-color: var(--light-yellow);
 }
 #start-over-btn:hover {
     background-color: darkgray;
     color: white;
 }
 .red:active {
-    background-color: pink;
+    background-color: var(--light-red);
 }
 .green:active {
-    background-color: rgb(155,245,210);
+    background-color: var(--light-green);
 }
 .blue:active {
-    background-color: lightblue;
+    background-color:var(--light-blue);
 }
 .yellow:active {
-    background-color: rgb(255,245,150);
+    background-color: var(--light-yellow);
 }
 
 #start-over-btn {
@@ -130,23 +142,7 @@ header {
     max-width: 100px;
     margin: 30px 5% 0 0;
 }
-/* highlight buttons */
 
-.highlightred {
-    background-color: pink;
-}
-
-.highlightgreen {
-    background-color: lightgreen;
-}
-
-.highlightyellow {
-    background-color: lightyellow;
-}
-
-.highlightblue {
-    background-color: lightblue;
-}
 
 /* media queries */
 

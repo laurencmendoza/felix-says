@@ -37,27 +37,35 @@ const meowImgEl = document.querySelector('#meow')
 
 /*----- event listeners -----*/ 
 
-startOverBtnEl.addEventListener('click', function() {
-    console.log('Start over button clicked')
-    init()
-})
+// startOverBtnEl.addEventListener('click', function() {
+//     console.log('Start over button clicked')
+//     init()
+// })
+
+
 
 /*----- functions -----*/ 
 
 function init() {
     score = 0;
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
-    // TO DO: Add the line of code below to render computer sequence function
-    // felixImgEl.setAttribute('src', imgFelixMouthOpen)
     meowImgEl.setAttribute('src', blueMeow)
+
     simonBtnEls.forEach(function(btn) {
         btn.addEventListener('click', handleClick)
     })
+
+    startOverBtnEl.addEventListener('click', handleStart)
+
     computerSeq = []
     playerSeq = []
+    renderScore()
+}
+
+function handleStart() {
     addToComputerSequence()
-    render()
-    
+    renderComputerSequence(computerSeq)
+    startOverBtnEl.textContent = 'Start Over'
 }
 
 function handleClick(evt) {
@@ -107,26 +115,19 @@ function renderScore() {
 }
 
 function renderComputerSequence(arr) {
-    let index = 0
+    let index = -1 // starting with non-exist array value to get a delay before starting game
     function iterate() {
         if (index < arr.length) {
             // for now, just want to see the array printed in console
             // TO DO: instead of console.log, set colors
             console.log(arr[index])
-
-            if (arr[index] === 'red') {
-                redBtnEl.backgroundColor = ''
-            }
-
-
-
+            // once index value is reached, set that color to a light version and all other colors to their normal color
             index++
             setTimeout(iterate, 1000);
         }
     }
     iterate()
 }
-
 
 
 
