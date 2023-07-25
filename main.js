@@ -63,21 +63,9 @@ function handleStart() {
     playerSeq = []
     addToComputerSequence()
     
-    // renderComputerSequence(computerSeq)
     startOverBtnEl.textContent = 'Start Over'
 
-    // trying to rendercomputersequence in console to start
-    let index = 0
-
-    const computerSeqInterval = setInterval(renderComputerSequence, 1000)
-
-    function renderComputerSequence() {
-        console.log(computerSeq[index])
-        index++
-        if (index > computerSeq.length - 1) {
-            clearInterval(computerSeqInterval)
-        }
-    }
+    renderComputerSequence()
 }
 
 function handleClick(evt) {
@@ -91,7 +79,7 @@ function addToComputerSequence() {
     let randomIndex = Math.floor(Math.random() *4)
     let computerChoice = options[randomIndex]
     computerSeq.push(computerChoice)
-    console.log(`current computer seq: ${computerSeq}`)
+    // console.log(`current computer seq: ${computerSeq}`)
 }
 
 function compareSequences(arr) {
@@ -111,7 +99,6 @@ function compareSequences(arr) {
         meowImgEl.style.visibility = 'visible'
         meowImgEl.setAttribute('src', yellowMeow)
         renderGameOver()
-        // init()
     }
 
     // once playerSeq is equal to the total computerSeq, add 1 to score and add value to computerSeq, and empty the playerSeq array
@@ -121,21 +108,11 @@ function compareSequences(arr) {
         render()
         addToComputerSequence()
         playerSeq = []
-
-        let index = 0
-
-        const computerSeqInterval = setInterval(renderComputerSequence, 1000)
-
-        function renderComputerSequence() {
-            console.log(computerSeq[index])
-            index++
-            if (index > computerSeq.length - 1) {
-            clearInterval(computerSeqInterval)
-            }
-        }
+        renderComputerSequence()
     }
 }
 
+// TO DO: might not even need this, check when finished and remove if unnecessary
 function render() {
     renderScore()
     // renderComputerSequence(computerSeq)
@@ -189,3 +166,22 @@ function renderGameOver() {
 
 
 init()
+
+function renderComputerSequence() {
+    simonBtnEls.forEach(function(btn) {
+        btn.setAttribute('disabled', 'true')
+    })
+    let index = 0
+    const computerSeqInterval = setInterval(logComputerSeq, 1000)
+    function logComputerSeq() {
+        console.log(computerSeq[index])
+        index++
+        if (index > computerSeq.length - 1) {
+            clearInterval(computerSeqInterval)
+            simonBtnEls.forEach(function(btn) {
+                btn.removeAttribute('disabled')
+            })
+        }
+    }
+}
+
