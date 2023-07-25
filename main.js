@@ -47,25 +47,39 @@ const meowImgEl = document.querySelector('#meow')
 /*----- functions -----*/ 
 
 function init() {
-    score = 0;
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
-    meowImgEl.setAttribute('src', blueMeow)
+    // TO DO: make sure to change visibility to 'visible' in render computerseq
+    meowImgEl.style.visibility = 'hidden'
+    startOverBtnEl.addEventListener('click', handleStart)
+}
 
+// when clicking start or start over, need this function to do the same as init function AS WELL AS render computer sequence
+function handleStart() {
+    score = 0
+    renderScore()
+
+    felixImgEl.setAttribute('src', imgFelixMouthClosed)
+
+    meowImgEl.style.visibility = 'hidden'
+    // enable buttons (disabled once game over renders)
+    simonBtnEls.forEach(function(btn) {
+        btn.removeAttribute('disabled')
+    })
     simonBtnEls.forEach(function(btn) {
         btn.addEventListener('click', handleClick)
     })
-
     startOverBtnEl.addEventListener('click', handleStart)
-
     computerSeq = []
     playerSeq = []
-    renderScore()
-}
-
-function handleStart() {
     addToComputerSequence()
     renderComputerSequence(computerSeq)
     startOverBtnEl.textContent = 'Start Over'
+}
+
+function handleStartOver() {
+    if (startOverBtnEl.textContent === 'Start Over') {
+        init()
+    }
 }
 
 function handleClick(evt) {
@@ -92,7 +106,13 @@ function compareSequences(arr) {
         console.log('correct')
     } else {
         console.log('game over')
-        init()
+        simonBtnEls.forEach(function(btn) {
+            btn.setAttribute('disabled', 'true')
+        })
+        meowImgEl.style.visibility = 'visible'
+        meowImgEl.setAttribute('src', yellowMeow)
+        renderGameOver()
+        // init()
     }
 
     // once playerSeq is equal to the total computerSeq, add 1 to score and add value to computerSeq
@@ -112,6 +132,12 @@ function render() {
 
 function renderScore() {
     scoreEl.innerHTML=`Score: ${score}`
+}
+
+function renderGameOver() {
+    // TO DO: change from yellowMeow to a game over meow
+    meowImgEl.setAttribute('src', yellowMeow)
+    // have start over button change to init??
 }
 
 function renderComputerSequence(arr) {
