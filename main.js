@@ -7,6 +7,10 @@
 
 const imgFelixMouthClosed = './imgs/Felix_mouth_closed.png'
 const imgFelixMouthOpen = './imgs/Felix_mouth_open.png'
+const blueMeow = 'imgs/Blue meow.png'
+const greenMeow = 'imgs/Green meow.png'
+const redMeow = 'imgs/Red meow.png'
+const yellowMeow = 'imgs/Yellow meow.png'
 
 const options = ['red', 'green', 'yellow', 'blue']
 
@@ -29,6 +33,7 @@ const startOverBtnEl = document.querySelector('#start-over-btn')
 const scoreEl = document.querySelector('.score')
 
 const felixImgEl = document.querySelector('#felix-img')
+const meowImgEl = document.querySelector('#meow')
 
 /*----- event listeners -----*/ 
 
@@ -44,7 +49,7 @@ function init() {
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
     // TO DO: Add the line of code below to render computer sequence function
     // felixImgEl.setAttribute('src', imgFelixMouthOpen)
-
+    meowImgEl.setAttribute('src', blueMeow)
     simonBtnEls.forEach(function(btn) {
         btn.addEventListener('click', handleClick)
     })
@@ -64,7 +69,7 @@ function addToComputerSequence() {
     let randomIndex = Math.floor(Math.random() *4)
     let computerChoice = options[randomIndex]
     computerSeq.push(computerChoice)
-    console.log(computerSeq)
+    console.log(`current computer seq: ${computerSeq}`)
 }
 
 function compareSequences(arr) {
@@ -89,7 +94,6 @@ function compareSequences(arr) {
         addToComputerSequence()
         playerSeq = []
     }
-
 }
 
 function render() {

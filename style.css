@@ -18,8 +18,8 @@ body {
 /* element styles */
 
 .score {
-    margin: 0 50px 0 0;
-    font-size: 24px;
+    margin: 0 40px 0 0;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -30,14 +30,12 @@ body {
     margin: 0 auto;
     height: 250px;
     width: 250px;
+    
     grid-template-columns: 1fr 1fr;
-    /* comment below out if you want to go back to squares */
-    /* border-radius: 50%; */
     overflow: hidden;
     grid-template-areas:
         "topleft topright"
         "bottomleft bottomright";
-    /* padding: 10px; */
 }
 
 .simon > button {
@@ -114,7 +112,7 @@ header {
 
 #start-over-btn {
     height: 50px;
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     margin: 0 50px 0 50px;
     border-radius: 10px;
@@ -122,12 +120,16 @@ header {
 }
 /* images */
 
-img {
+#felix-img {
     width: 35vw;
-    margin: 50px 0 0 15%;
+    margin: 50px 0 0 5%;
     max-width: 100px; 
 }
 
+#meow {
+    max-width: 100px;
+    margin: 30px 5% 0 0;
+}
 /* highlight buttons */
 
 .highlightred {
@@ -148,17 +150,29 @@ img {
 
 /* media queries */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 375px) {
+    .score {
+        padding: 10px 0 0 0;
+    }
+    img {
+        width: 125px;
+    }
+}
+@media only screen and (min-width: 540px) {
     .simon {
         height: 375px;
         width: 375px;
     }
-    img {
-        max-width: 170px;
+    #felix-img {
+        max-width: 160px;
         margin: 0 0 0 10%;
     }
+    #meow {
+        max-width: 150px;
+        margin: 0 0 20px 0;
+    }
     header > h1 {
-        font-size: 3.5rem;
+        font-size: 3.25rem;
     }
     #start-over-btn {
         font-size: 28px;
@@ -166,10 +180,17 @@ img {
     .score {
         font-size: 28px;
     }
-
+}
+@media only screen and (min-width: 1024px) {
+    #felix-img {
+        max-width: 170px;
+    }
+    #meow {
+        max-width: 190px;
+    }
 }
 
-@media only screen and (max-height: 675px) {
+@media only screen and (max-height: 830px) {
     .simon {
         height: 250px;
         width: 250px;
@@ -180,6 +201,24 @@ img {
     }
 }
 
+@media only screen and (max-height: 730px) {
+    .simon {
+        height: 200px;
+        width: 200px;
+        min-height: 200px;
+        min-width: 200px;
+    }
+    .simon > button {
+        margin: 5px;
+    }
+    #meow {
+        max-height: 100px;
+    }
+}
 
-
+@media only screen and (max-height: 600px) {
+    img {
+        visibility: hidden;
+    }
+}
 
