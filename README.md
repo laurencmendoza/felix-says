@@ -27,8 +27,8 @@ Click [here](https://laurencmendoza.github.io/felix-says-project-demo/) to test 
 
 ## Future Features
 
-1. Add audio for game over message
-2. Make a toggle button for the audio to turn it off or on
+1. Add audio for buttons
+2. Make a toggle button for the audio to turn it on or off
 3. Add "highest score" on the page to show a value equal to the longest sequence the player has correctly repeated
 4. Pause at milestone scores to let the player know their score and give them the option to continue or not
 

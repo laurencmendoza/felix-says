@@ -5,10 +5,10 @@ const greenBtnAudio = new Audio('./audio/felixmeow2.mp3');
 const yellowBtnAudio = new Audio('./audio/felixmeow3.mp3');
 const blueBtnAudio = new Audio('./audio/felixmeow4.mp3');
 
-const imgFelixMouthClosed = './imgs/Felix_mouth_closed.png'
-const imgFelixMouthOpen = './imgs/Felix_mouth_open.png'
+const imgFelixMouthClosed = './imgs/felixMouthClosed.png'
+const imgFelixMouthOpen = './imgs/felixMouthOpen.png'
 const imgFelixSmiling = './imgs/felixSmiling.png'
-const gameOverText = './imgs/gameover.png'
+const gameOverText = './imgs/gameOver.png'
 const winnerText = './imgs/winner.png'
 
 const options = ['red', 'green', 'yellow', 'blue']
