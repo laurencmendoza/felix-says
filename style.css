@@ -9,7 +9,7 @@
 body {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
-    height: 100vh;
+    height: 80vh;
     display: flex; 
     flex-direction: column;
     justify-content: space-between;
@@ -155,11 +155,14 @@ header {
     #felix-img {
         width: 150px;
     }
+    body {
+        height: 100vh;
+    }
 }
 @media only screen and (min-width: 540px) {
     .simon {
-        height: 375px;
-        width: 375px;
+        height: 325px;
+        width: 325px;
     }
     #felix-img {
         max-width: 160px;
