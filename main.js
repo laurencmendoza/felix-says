@@ -126,10 +126,14 @@ function renderGameOver() {
 
 function renderComputerSequence() {
     
+    
     // while computer sequence is rendered, disable simon buttons
     simonBtnEls.forEach(function(btn) {
         btn.setAttribute('disabled', 'true')
+        // btn.classList.add('disable-hover')
     })
+    
+    // 
 
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
@@ -146,9 +150,8 @@ function renderComputerSequence() {
 
         function revertColor() {
             simonBtnEls.forEach(function(btn) {
-                if (btn.style.backgroundColor = 'white') {
-                    btn.style.backgroundColor = `var(--${btn.className})`
-                }
+                btn.style.backgroundColor = `var(--${btn.className})`
+
             })
         }
 

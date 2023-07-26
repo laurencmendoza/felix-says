@@ -92,7 +92,7 @@ header {
     background-color: var(--blue);
     grid-area: bottomleft;
 }
-.red:hover {
+/* .red:hover {
     background-color: var(--light-red);
 }
 .green:hover {
@@ -103,26 +103,26 @@ header {
 }
 .yellow:hover {
     background-color: var(--light-yellow);
-}
+} */
 #start-over-btn:hover {
     background-color: darkgray;
     color: white;
 }
 .red:active {
-    background-color: var(--light-red);
+    background-color: var(--light-red) !important;
 }
 .green:active {
-    background-color: var(--light-green);
+    background-color: var(--light-green) !important;
 }
 .blue:active {
-    background-color:var(--light-blue);
+    background-color:var(--light-blue) !important;
 }
 .yellow:active {
-    background-color: var(--light-yellow);
+    background-color: var(--light-yellow) !important;
 }
 
-.highlight {
-    background-color: lightgray !important;
+.disable-hover {
+    pointer-events: none
 }
 
 #start-over-btn {
