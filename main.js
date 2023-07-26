@@ -8,7 +8,7 @@ const blueBtnAudio = new Audio('./audio/felixmeow4.mp3');
 const imgFelixMouthClosed = './imgs/felixMouthClosed.png'
 const imgFelixMouthOpen = './imgs/felixMouthOpen.png'
 const imgFelixSmiling = './imgs/felixSmiling.png'
-const gameOverText = './imgs/gameOver.png'
+const gameOverText = './imgs/gameover.png'
 const winnerText = './imgs/winner.png'
 
 const options = ['red', 'green', 'yellow', 'blue']
