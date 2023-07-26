@@ -1,3 +1,17 @@
+/* color variables */
+
+* {
+    --red: rgb(236,0,33);
+    --green: rgb(85,180,155);
+    --yellow: rgb(255,210,95);
+    --blue: rgb(43,152,208);
+    --light-red: pink;
+    --light-green: rgb(155,245,210);
+    --light-yellow: rgb(255,245,150);
+    --light-blue: lightblue;
+    --white-smoke: rgb(245,245,245);
+}
+
 /* global styles  */
 
 * {
@@ -15,19 +29,6 @@ body {
     justify-content: space-between;
 }
 
-/* color variables */
-* {
-    --red: rgb(236,0,33);
-    --green: rgb(85,180,155);
-    --yellow: rgb(255,210,95);
-    --blue: rgb(43,152,208);
-    --light-red: pink;
-    --light-green: rgb(155,245,210);
-    --light-yellow: rgb(255,245,150);
-    --light-blue: lightblue;
-    --white-smoke: rgb(245,245,245);
-}
-
 /* element styles */
 
 .score {
@@ -43,9 +44,7 @@ body {
     margin: 0 auto;
     height: 250px;
     width: 250px;
-    
     grid-template-columns: 1fr 1fr;
-    overflow: hidden;
     grid-template-areas:
         "topleft topright"
         "bottomleft bottomright";
@@ -57,7 +56,6 @@ body {
     margin: 10px;
     border-radius: 15px;
 }
-
 
 footer {
     display: flex;
@@ -82,57 +80,49 @@ header {
     background-color: var(--red);
     grid-area: topleft;
 }
+
 .green {
     background-color: var(--green);
     grid-area: topright;
 }
+
 .yellow {
     background-color: var(--yellow);
     grid-area: bottomright;
 }
+
 .blue {
     background-color: var(--blue);
     grid-area: bottomleft;
 }
-/* .red:hover {
-    background-color: var(--light-red);
-}
-.green:hover {
-    background-color: var(--light-green);
-}
-.blue:hover {
-    background-color: var(--light-blue);
-}
-.yellow:hover {
-    background-color: var(--light-yellow);
-} */
+
 #start-over-btn:hover {
     background-color: darkgray;
     color: white;
 }
+
 .red:active {
     background-color: var(--light-red) !important;
 }
+
 .green:active {
     background-color: var(--light-green) !important;
 }
+
 .blue:active {
     background-color:var(--light-blue) !important;
 }
+
 .yellow:active {
     background-color: var(--light-yellow) !important;
 }
 
-/* .disable-hover {
-    pointer-events: none
-} */
-
 #start-over-btn {
     height: 50px;
     font-size: 18px;
-    display: block;
     margin: 0 0 0 50px;
     border-radius: 10px;
+    color: black;
     font-family: 'Orbitron', sans-serif
 }
 /* images */
@@ -157,6 +147,7 @@ header {
         width: 150px;
     }
 }
+
 @media only screen and (min-width: 540px) {
     .simon {
         height: 325px;
@@ -180,6 +171,7 @@ header {
         font-size: 28px;
     }
 }
+
 @media only screen and (min-width: 1024px) {
     #felix-img {
         width: 250px;
