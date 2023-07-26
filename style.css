@@ -1,7 +1,7 @@
 /* global styles  */
 
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     box-sizing: border-box;
 }
 
@@ -32,13 +32,6 @@ body {
     margin: 0 40px 0 0;
     font-size: 18px;
     text-align: center;
-}
-
-.message {
-    font-size: 18px;
-    margin: 0;
-    text-align: center;
-    padding: 10px;
 }
 
 /* layout */

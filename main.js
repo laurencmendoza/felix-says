@@ -7,7 +7,9 @@ const blueBtnAudio = new Audio('./audio/felixmeow4.mp3');
 
 const imgFelixMouthClosed = './imgs/Felix_mouth_closed.png'
 const imgFelixMouthOpen = './imgs/Felix_mouth_open.png'
+const imgFelixSmiling = './imgs/felixSmiling.png'
 const gameOverText = './imgs/gameover.png'
+const winnerText = './imgs/winner.png'
 
 const options = ['red', 'green', 'yellow', 'blue']
 
@@ -95,47 +97,25 @@ function compareSequences(arr) {
         simonBtnEls.forEach(function(btn) {
             btn.setAttribute('disabled', 'true')
         })
-        meowImgEl.style.visibility = 'visible'
-        meowImgEl.setAttribute('src', gameOverText)
+
+        
         renderGameOver()
     }
 
     // once playerSeq is equal to the total computerSeq, add 1 to score and add value to computerSeq, and empty the playerSeq array
     if (playerSeqString === totalComputerSeqString) {
-
-        //show a message when player gets whole sequence correct
-        meowImgEl.style.visibility = 'visible'
-
-        function hideMeow() {
-            meowImgEl.style.visibility = 'hidden'
-        }
-
-        setTimeout(hideMeow, 1000)
-        
         console.log('leveling up')
         score ++
-        render()
+        renderWinner()
+        renderScore()
         addToComputerSequence()
-        playerSeq = []
         renderComputerSequence()
+        playerSeq = []
     }
-}
-
-// TO DO: might not even need this, check when finished and remove if unnecessary
-function render() {
-    renderScore()
-    // renderComputerSequence(computerSeq)
 }
 
 function renderScore() {
     scoreEl.innerHTML=`Score: ${score}`
-}
-
-function renderGameOver() {
-    meowImgEl.style.visibility = 'visible'
-    felixImgEl.setAttribute('src', imgFelixMouthOpen)
-    meowImgEl.setAttribute('src', gameOverText)
-    redBtnAudio.play()
 }
 
 function renderComputerSequence() {
@@ -178,6 +158,32 @@ function renderComputerSequence() {
             })
         }
     }
+}
+
+function renderWinner() {
+    //show a smiling Felix when player gets the whole seq correct
+    felixImgEl.setAttribute('src', imgFelixSmiling)
+    function changeFelixImg() {
+        felixImgEl.setAttribute('src', imgFelixMouthClosed)
+    }
+    setTimeout(changeFelixImg, 1000)
+
+
+    // TO DO: make a happier audio
+    greenBtnAudio.play()
+
+    //show winner text
+    meowImgEl.style.visibility = 'visible'
+    meowImgEl.setAttribute('src', winnerText)
+    setTimeout(meowImgEl.setAttribute('vibility', 'hidden'), 1000)
+
+}
+
+function renderGameOver() {
+    meowImgEl.style.visibility = 'visible'
+    felixImgEl.setAttribute('src', imgFelixMouthOpen)
+    meowImgEl.setAttribute('src', gameOverText)
+    redBtnAudio.play()
 }
 
 init()
