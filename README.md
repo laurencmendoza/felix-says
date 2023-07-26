@@ -18,8 +18,9 @@
 2. [W3Schools](https://www.w3schools.com/)
 3. [freesimon.org](https://freesimon.org)
 4. [ChatGPT](https://openai.com/blog/chatgpt)
-4. Talent: Felix Mendoza
-5. Audio: Nico Mendoza
+5. [Wikipeida Shades of White](https://en.wikipedia.org/wiki/Shades_of_white)
+6. Talent: Felix Mendoza
+7. Audio: Nico Mendoza
 
 ## Getting Started
 
