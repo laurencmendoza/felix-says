@@ -37,7 +37,6 @@ const meowImgEl = document.querySelector('#meow')
 function init() {
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
     meowImgEl.style.visibility = 'hidden'
-    meowImgEl.setAttribute('src', gameOverText)
     startOverBtnEl.addEventListener('click', handleStart)
 }
 
@@ -94,7 +93,7 @@ function compareSequences(arr) {
             btn.setAttribute('disabled', 'true')
         })
         meowImgEl.style.visibility = 'visible'
-        meowImgEl.setAttribute('src', yellowMeow)
+        meowImgEl.setAttribute('src', gameOverText)
         renderGameOver()
     }
 
@@ -120,69 +119,22 @@ function renderScore() {
 }
 
 function renderGameOver() {
-    // TO DO: change from yellowMeow to a game over meow
     felixImgEl.setAttribute('src', imgFelixMouthOpen)
     meowImgEl.setAttribute('src', gameOverText)
 }
 
-
-
-
-
-// function renderComputerSequence(arr) {
-//     console.log(computerSeq)
-//     const interval = 1000;
-
-//     for (i=0; i<arr.length; i++) {
-//         console.log(arr[i])
-//         let color = arr[i]
-//         setTimeout(function() {
-//             highlightButton(color)
-//         }, interval)
-//     }
-//     if (i < arr.length) {
-//         console.log(arr[i])
-//         let color = arr[index]
-
-//         setTimeout(function() {
-//             highlightButton(color)
-//             index++
-//             }, interval*(i|| 1))
-//         }
-// }
-
-// function highlightButton(color) {
-//     const btnSelected = document.querySelector(`.${color}`)
-//     console.log(color,  btnSelected)
-//     btnSelected.classList.add('highlight')
-//     setTimeout(function() {
-//         btnSelected.classList.remove('highlight')
-//     }, 800)
-// }
-
-
-
-init()
-
 function renderComputerSequence() {
+    
     // while computer sequence is rendered, disable simon buttons
     simonBtnEls.forEach(function(btn) {
         btn.setAttribute('disabled', 'true')
     })
-    // the following code will log computer sequence every sec & change meow picture to corresponding color
+
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
     function logComputerSeq() {
-        
-        //TO DO: right here, need to have buttons do something instead of just print value to the console
-        console.log(computerSeq[index])
-
-        // makes meowImgEl visible
-        // meowImgEl.style.visibility = 'visible'
-        //sets meowImgEl to corresponding color
-        // meowImgEl.setAttribute('src', `imgs/${computerSeq[index]}Meow.png`)
-
-
+        felixImgEl.setAttribute('src', imgFelixMouthOpen)
+        // console.log(computerSeq[index])
         simonBtnEls.forEach(function(btn) {
             if (btn.className === computerSeq[index]) {
                 btn.style.backgroundColor = `var(--light-${computerSeq[index]})`
@@ -198,18 +150,19 @@ function renderComputerSequence() {
         }
 
         setTimeout(revertColor, 500)
-        
-
-        console.log(meowImgEl)
 
         index++
-        if (index > computerSeq.length - 1) {
+        if (index > computerSeq.length) {
             clearInterval(computerSeqInterval)
+            felixImgEl.setAttribute('src', imgFelixMouthClosed)
             simonBtnEls.forEach(function(btn) {
                 btn.removeAttribute('disabled')
             })
         }
     }
 }
+
+init()
+
 
 
