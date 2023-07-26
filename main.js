@@ -172,8 +172,8 @@ function renderWinner() {
     // greenBtnAudio.play()
 
     //show winner text
-    meowImgEl.style.visibility = 'visible'
     meowImgEl.setAttribute('src', winnerText)
+    meowImgEl.style.visibility = 'visible'
     setTimeout(function() {
         meowImgEl.style.visibility = 'hidden'
     }, 1000)
@@ -181,9 +181,9 @@ function renderWinner() {
 }
 
 function renderGameOver() {
-    meowImgEl.style.visibility = 'visible'
     felixImgEl.setAttribute('src', imgFelixMouthOpen)
     meowImgEl.setAttribute('src', gameOverText)
+    meowImgEl.style.visibility = 'visible'
     // redBtnAudio.play()
 }
 
