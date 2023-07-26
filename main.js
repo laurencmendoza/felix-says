@@ -7,10 +7,7 @@
 
 const imgFelixMouthClosed = './imgs/Felix_mouth_closed.png'
 const imgFelixMouthOpen = './imgs/Felix_mouth_open.png'
-const blueMeow = 'imgs/Blue meow.png'
-const greenMeow = 'imgs/Green meow.png'
-const redMeow = 'imgs/Red meow.png'
-const yellowMeow = 'imgs/Yellow meow.png'
+const gameOverText = './imgs/gameover.png'
 
 const options = ['red', 'green', 'yellow', 'blue']
 
@@ -39,8 +36,8 @@ const meowImgEl = document.querySelector('#meow')
 
 function init() {
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
-    // TO DO: make sure to change visibility to 'visible' in render computerseq
     meowImgEl.style.visibility = 'hidden'
+    meowImgEl.setAttribute('src', gameOverText)
     startOverBtnEl.addEventListener('click', handleStart)
 }
 
@@ -125,7 +122,7 @@ function renderScore() {
 function renderGameOver() {
     // TO DO: change from yellowMeow to a game over meow
     felixImgEl.setAttribute('src', imgFelixMouthOpen)
-    meowImgEl.setAttribute('src', yellowMeow)
+    meowImgEl.setAttribute('src', gameOverText)
 }
 
 
@@ -168,26 +165,43 @@ function renderGameOver() {
 init()
 
 function renderComputerSequence() {
+    // while computer sequence is rendered, disable simon buttons
     simonBtnEls.forEach(function(btn) {
         btn.setAttribute('disabled', 'true')
     })
+    // the following code will log computer sequence every sec & change meow picture to corresponding color
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
     function logComputerSeq() {
-        meowImgEl.style.visibility = 'visible'
-        //TO DO: right here, need to have buttons do something instead of just print value to the console
         
+        //TO DO: right here, need to have buttons do something instead of just print value to the console
         console.log(computerSeq[index])
-        if (computerSeq[index] === 'red') {
-            meowImgEl.setAttribute('src', redMeow)
-        } else if (computerSeq[index] === 'green') {
-            meowImgEl.setAttribute('src', greenMeow)
-        } else if (computerSeq[index] === 'yellow') {
-            meowImgEl.setAttribute('src', yellowMeow)
-        } else if (computerSeq[index] === 'blue') {
-            meowImgEl.setAttribute('src', blueMeow)
+
+        // makes meowImgEl visible
+        // meowImgEl.style.visibility = 'visible'
+        //sets meowImgEl to corresponding color
+        // meowImgEl.setAttribute('src', `imgs/${computerSeq[index]}Meow.png`)
+
+
+        simonBtnEls.forEach(function(btn) {
+            if (btn.className === computerSeq[index]) {
+                btn.style.backgroundColor = `var(--light-${computerSeq[index]})`
+            }
+        }) 
+
+        function revertColor() {
+            simonBtnEls.forEach(function(btn) {
+                if (btn.style.backgroundColor = 'white') {
+                    btn.style.backgroundColor = `var(--${btn.className})`
+                }
+            })
         }
-        //
+
+        setTimeout(revertColor, 500)
+        
+
+        console.log(meowImgEl)
+
         index++
         if (index > computerSeq.length - 1) {
             clearInterval(computerSeqInterval)
@@ -197,4 +211,5 @@ function renderComputerSequence() {
         }
     }
 }
+
 

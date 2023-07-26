@@ -123,7 +123,7 @@ header {
 }
 
 .highlight {
-    background-color: red !important;
+    background-color: lightgray !important;
 }
 
 #start-over-btn {
@@ -143,71 +143,8 @@ header {
 }
 
 #meow {
-    max-width: 100px;
+    width: 150px;
     margin: 30px 5% 0 0;
-}
-
-/* animations */
-
-.animated-red {
-    animation: glow-red 1s ease-in-out;
-}
-.animate-green {
-    animation: glow-green 1s ease-in-out;
-}
-.animate-yellow {
-    animation: glow-yellow 1s ease-in-out;
-}
-.animate-blue {
-    animation: glow-blue 1s ease-in-out;
-}
-
-@keyframes glow-red {
-    0% {
-        background-color: var(--red);
-    }
-    50% {
-        background-color: var(--light-red);
-    }
-    100% {
-        background-color: var(--red);
-    }
-}
-
-@keyframes glow-green {
-    0% {
-        background-color: var(--green);
-    }
-    50% {
-        background-color: var(--light-green);
-    }
-    100% {
-        background-color: var(--green);
-    }
-}
-
-@keyframes glow-yellow {
-    0% {
-        background-color: var(--yellow);
-    }
-    50% {
-        background-color: var(--light-yellow);
-    }
-    100% {
-        background-color: var(--yellow);
-    }
-}
-
-@keyframes glow-blue {
-    0% {
-        background-color: var(--blue);
-    }
-    50% {
-        background-color: var(--light-blue);
-    }
-    100% {
-        background-color: var(--blue);
-    }
 }
 
 /* media queries */
@@ -216,7 +153,7 @@ header {
     .score {
         padding: 10px 0 0 0;
     }
-    img {
+    #felix-img {
         width: 125px;
     }
 }
@@ -230,7 +167,7 @@ header {
         margin: 0 0 0 10%;
     }
     #meow {
-        max-width: 150px;
+        width: 200px;
         margin: 0 0 20px 0;
     }
     header > h1 {
@@ -248,7 +185,7 @@ header {
         max-width: 170px;
     }
     #meow {
-        max-width: 190px;
+        width: 220px;
     }
 }
 
