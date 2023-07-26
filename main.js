@@ -29,6 +29,8 @@ const startOverBtnEl = document.querySelector('#start-over-btn')
 
 const scoreEl = document.querySelector('.score')
 
+const message = document.querySelector('.message')
+
 const felixImgEl = document.querySelector('#felix-img')
 const meowImgEl = document.querySelector('#meow')
 
@@ -100,6 +102,16 @@ function compareSequences(arr) {
 
     // once playerSeq is equal to the total computerSeq, add 1 to score and add value to computerSeq, and empty the playerSeq array
     if (playerSeqString === totalComputerSeqString) {
+
+        //show a message when player gets whole sequence correct
+        meowImgEl.style.visibility = 'visible'
+
+        function hideMeow() {
+            meowImgEl.style.visibility = 'hidden'
+        }
+
+        setTimeout(hideMeow, 1000)
+        
         console.log('leveling up')
         score ++
         render()
@@ -120,8 +132,10 @@ function renderScore() {
 }
 
 function renderGameOver() {
+    meowImgEl.style.visibility = 'visible'
     felixImgEl.setAttribute('src', imgFelixMouthOpen)
     meowImgEl.setAttribute('src', gameOverText)
+    redBtnAudio.play()
 }
 
 function renderComputerSequence() {
@@ -133,8 +147,6 @@ function renderComputerSequence() {
         // btn.classList.add('disable-hover')
     })
     
-    // 
-
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
     function logComputerSeq() {

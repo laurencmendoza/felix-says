@@ -1,7 +1,7 @@
 /* global styles  */
 
 * {
-    /* border: 1px solid red; */
+    border: 1px solid red;
     box-sizing: border-box;
 }
 
@@ -32,6 +32,13 @@ body {
     margin: 0 40px 0 0;
     font-size: 18px;
     text-align: center;
+}
+
+.message {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
 }
 
 /* layout */
@@ -121,15 +128,15 @@ header {
     background-color: var(--light-yellow) !important;
 }
 
-.disable-hover {
+/* .disable-hover {
     pointer-events: none
-}
+} */
 
 #start-over-btn {
     height: 50px;
     font-size: 18px;
     display: block;
-    margin: 0 50px 0 50px;
+    margin: 0 0 0 50px;
     border-radius: 10px;
     font-family: 'Orbitron', sans-serif
 }
