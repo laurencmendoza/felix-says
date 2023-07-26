@@ -1,9 +1,9 @@
 /*----- constants -----*/ 
 
-// const redBtnAudio; 
-// const greenBtnAudio;
-// const yellowBtnAudio;
-// const blueBtnAudio;
+const redBtnAudio; 
+const greenBtnAudio;
+const yellowBtnAudio;
+const blueBtnAudio;
 
 const imgFelixMouthClosed = './imgs/Felix_mouth_closed.png'
 const imgFelixMouthOpen = './imgs/Felix_mouth_open.png'
@@ -46,8 +46,6 @@ function handleStart() {
 
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
 
-    meowImgEl.style.visibility = 'hidden'
-    // enable buttons (disabled once game over renders)
     simonBtnEls.forEach(function(btn) {
         btn.removeAttribute('disabled')
     })
@@ -89,6 +87,7 @@ function compareSequences(arr) {
         console.log('correct')
     } else {
         console.log('game over')
+        // disable buttons
         simonBtnEls.forEach(function(btn) {
             btn.setAttribute('disabled', 'true')
         })

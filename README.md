@@ -17,16 +17,21 @@
 1. [MDN](https://developer.mozilla.org/en-US/)
 2. [W3Schools](https://www.w3schools.com/)
 3. [freesimon.org](https://freesimon.org)
+4. [ChatGPT](https://openai.com/blog/chatgpt)
+4. Talent: Felix Mendoza
+5. Audio: Nico Mendoza
 
 ## Getting Started
 
-Click here to test the game!
+Click [here](https://laurencmendoza.github.io/felix-says-project-demo/) to test the game!
 
 ## Future Features
 
-1. Add "highest score" on the page to show a value equal to the longest sequence the player has correctly repeated
-2. Add audio...
-3. etc. 
+1. Add audio for game over message
+2. Make a toggle button for the audio to turn it off or on
+3. Add "highest score" on the page to show a value equal to the longest sequence the player has correctly repeated
+4. Pause at milestone scores to let the player know their score and give them the option to continue or not
+
 <!-- A README.md file with these sections: 
 
 ☐ <Your game's title>: A description of your game. Background info of the game is a nice touch.
