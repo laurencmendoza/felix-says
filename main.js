@@ -1,9 +1,9 @@
 /*----- constants -----*/ 
 
-const redBtnAudio; 
-const greenBtnAudio;
-const yellowBtnAudio;
-const blueBtnAudio;
+const redBtnAudio = new Audio('./audio/felixmeow1.mp3'); 
+const greenBtnAudio = new Audio('./audio/felixmeow2.mp3');
+const yellowBtnAudio = new Audio('./audio/felixmeow3.mp3');
+const blueBtnAudio = new Audio('./audio/felixmeow4.mp3');
 
 const imgFelixMouthClosed = './imgs/Felix_mouth_closed.png'
 const imgFelixMouthOpen = './imgs/Felix_mouth_open.png'
@@ -34,6 +34,7 @@ const meowImgEl = document.querySelector('#meow')
 
 /*----- functions -----*/ 
 
+
 function init() {
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
     meowImgEl.style.visibility = 'hidden'
@@ -43,6 +44,7 @@ function init() {
 function handleStart() {
     score = 0
     renderScore()
+    meowImgEl.style.visibility = 'hidden'
 
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
 
@@ -132,7 +134,9 @@ function renderComputerSequence() {
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
     function logComputerSeq() {
+        
         felixImgEl.setAttribute('src', imgFelixMouthOpen)
+        
         // console.log(computerSeq[index])
         simonBtnEls.forEach(function(btn) {
             if (btn.className === computerSeq[index]) {
