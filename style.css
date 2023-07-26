@@ -5,11 +5,10 @@
     box-sizing: border-box;
 }
 
-
 body {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
-    height: 80vh;
+    height: 100vh;
     display: flex; 
     flex-direction: column;
     justify-content: space-between;
@@ -154,9 +153,6 @@ header {
     }
     #felix-img {
         width: 150px;
-    }
-    body {
-        height: 100vh;
     }
 }
 @media only screen and (min-width: 540px) {
