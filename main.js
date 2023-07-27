@@ -4,33 +4,24 @@ const redBtnAudio = new Audio('./audio/zeroMeow1.mp3')
 const greenBtnAudio = new Audio('./audio/zeroMeow2.mp3')
 const yellowBtnAudio = new Audio('./audio/zeroMeow3.mp3')
 const blueBtnAudio = new Audio('./audio/zeroMeow4.mp3')
-
 const levelUpAudio = new Audio('./audio/collarJingle.mp3')
 const gameOverAudio = new Audio('./audio/felixLongMeow.mp3')
 const winAudio = new Audio('./audio/zeroWinMeow.mp3')
-
 const imgFelixMouthClosed = './imgs/felixMouthClosed.png'
 const imgFelixMouthOpen = './imgs/felixMouthOpen.png'
 const imgFelixSmiling = './imgs/felixSmiling.png'
 const gameOverText = './imgs/gameover.png'
 const winnerText = './imgs/winner.png'
-
 const imgAudioOn = './imgs/audioOn.png'
 const imgAudioOff = 'imgs/audioOff.png'
-
 const options = ['red', 'green', 'yellow', 'blue']
-
-const winningScore = 7
+const winningScore = 10
 
 /*----- state variables -----*/ 
 
 let score; 
-
 let computerSeq;
 let playerSeq;
-
-let timesWon; 
-
 let isMuted = false 
 
 /*----- cached elements -----*/ 
