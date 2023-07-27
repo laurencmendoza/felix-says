@@ -58,24 +58,20 @@ function init() {
 
 function handleStart() {
     score = 0
+    computerSeq = []
+    playerSeq = []
+
     renderScore()
 
     meowImgEl.style.visibility = 'hidden'
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
+    startOverBtnEl.textContent = 'Start Over'
 
-    simonBtnEls.forEach(function(btn) {
-        btn.removeAttribute('disabled')
-    })
     simonBtnEls.forEach(function(btn) {
         btn.addEventListener('click', handleClick)
     })
-    startOverBtnEl.addEventListener('click', handleStart)
-    computerSeq = []
-    playerSeq = []
-    addToComputerSequence()
     
-    startOverBtnEl.textContent = 'Start Over'
-
+    addToComputerSequence()
     renderComputerSequence()
 }
 
