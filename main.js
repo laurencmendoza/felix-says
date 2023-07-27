@@ -76,6 +76,17 @@ function handleClick(evt) {
     playerSeq.push(playerChoice)
     console.log(`player's choice: ${playerChoice}`)
     compareSequences(playerSeq)
+
+    // play audio
+    if (evt.target.classList.value === 'red') {
+        redBtnAudio.play()
+    } else if (evt.target.classList.value === 'green') {
+        greenBtnAudio.play()
+    } else if (evt.target.classList.value === 'yellow') {
+        yellowBtnAudio.play()
+    } else if (evt.target.classList.value === 'blue') {
+        blueBtnAudio.play()
+    }
 }
 
 function addToComputerSequence() {
@@ -122,27 +133,28 @@ function renderScore() {
 }
 
 function renderComputerSequence() {
-    
-    
-    // while computer sequence is rendered, disable simon buttons
+    // disable buttons during computer sequence render
     simonBtnEls.forEach(function(btn) {
         btn.setAttribute('disabled', 'true')
-        // btn.classList.add('disable-hover')
     })
     
+    // iterate over computer sequence at interval of 1s each value starting with index 0
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
     function logComputerSeq() {
         
         felixImgEl.setAttribute('src', imgFelixMouthOpen)
         
-        // console.log(computerSeq[index])
+        console.log(computerSeq[index])
+
+        //set corresponding button to light color when it shows in computerSeq
         simonBtnEls.forEach(function(btn) {
             if (btn.className === computerSeq[index]) {
                 btn.style.backgroundColor = `var(--light-${computerSeq[index]})`
             }
         }) 
 
+        //revert color back to original color after half a second
         function revertColor() {
             simonBtnEls.forEach(function(btn) {
                 btn.style.backgroundColor = `var(--${btn.className})`
@@ -152,6 +164,18 @@ function renderComputerSequence() {
 
         setTimeout(revertColor, 500)
 
+        //play audio that corresponds to button
+        if (computerSeq[index] === 'red') {
+            redBtnAudio.play()
+        } else if (computerSeq[index] === 'green') {
+            greenBtnAudio.play()
+        } else if (computerSeq[index] === 'yellow') {
+            yellowBtnAudio.play()
+        } else if (computerSeq[index] === 'blue') {
+            blueBtnAudio.play()
+        }
+
+        // increase index value and clear interval and remove disable button attribute when index value reaches end of array
         index++
         if (index > computerSeq.length) {
             clearInterval(computerSeqInterval)
