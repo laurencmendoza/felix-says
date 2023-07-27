@@ -1,6 +1,6 @@
 # Felix Says (Simon)
 
-'Felix Says' is a game based on the classic memory game 'Simon'. In 'Simon', players see a circle divided into four colored buttons- red, blue, yellow, and green. The colored buttons light up in a sequence, and the player is expected to repeat the sequence by pressing the correct buttons in the correct order. If the player repeats the sequence correctly, 'Simon' will add one to the sequence. The game ends once the player fails to repeat the sequence correctly. 'Felix Says' features Felix the black cat, who meows the sequence for the player to repeat on their own 'Simon' game look-alike. 
+'Felix Says' is a game based on the classic memory game 'Simon'. In 'Simon', players see a circle divided into four colored buttons- red, green, yellow, and blue. The colored buttons light up in a sequence, and the player is expected to repeat the sequence by pressing the correct buttons in the correct order. If the player repeats the sequence correctly, 'Simon' will play the sequence again, with one new random value added to the end. The game ends once the player fails to repeat the sequence correctly. 'Felix Says' features Felix the black cat, who meows the sequence for the player to repeat on their own 'Simon' game look-alike. 
 
 ## Gameplay - Screenshots 
 
@@ -10,7 +10,7 @@
 
 - HTML
 - CSS
-- JS
+- JavaScript
 
 ## Key Resources
 
@@ -29,10 +29,9 @@ Click [here](https://laurencmendoza.github.io/felix-says-project-demo/) to test 
 
 ## Future Features
 
-1. Add audio for buttons
-2. Make a toggle button for the audio to turn it on or off
-3. Add "highest score" on the page to show a value equal to the longest sequence the player has correctly repeated
-4. Pause at milestone scores to let the player know their score and give them the option to continue or not
+1. Pause at multiple milestone scores to let the player know their score and give them the option to continue
+2. Add "highest score" feature that keeps track of the longest sequence the player has completed, even after starting over
+3. Have a scoreboard that renders when player hits game over and displays the top 3 highest scores stored so far 
 
 <!-- A README.md file with these sections: 
 
