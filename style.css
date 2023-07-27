@@ -41,6 +41,11 @@ body {
     position: absolute;
     top: 15px;
     right: 15px;
+    background-image: url('imgs/audioOn.png');
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+    border: none;
 }
 
 /* layout */
@@ -207,6 +212,10 @@ header {
     }
     #win-text {
         font-size: 36px;
+    }
+    #toggle-audio {
+        height: 70px;
+        width: 70px;
     }
 }
 

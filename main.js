@@ -15,9 +15,12 @@ const imgFelixSmiling = './imgs/felixSmiling.png'
 const gameOverText = './imgs/gameover.png'
 const winnerText = './imgs/winner.png'
 
+const imgAudioOn = './imgs/audioOn.png'
+const imgAudioOff = 'imgs/audioOff.png'
+
 const options = ['red', 'green', 'yellow', 'blue']
 
-const winningScore = 5
+const winningScore = 7
 
 /*----- state variables -----*/ 
 
@@ -251,10 +254,6 @@ function overlayOff() {
     renderComputerSequence()
 }
 
-
-
-
-
 function handleMute() {
     if (isMuted === false) {
         redBtnAudio.muted = true
@@ -265,6 +264,8 @@ function handleMute() {
         gameOverAudio.muted = true
         winAudio.muted = true
         isMuted = true
+        muteButton.style.backgroundImage = `url(${imgAudioOff})`
+
     } else {
         redBtnAudio.muted = false
         greenBtnAudio.muted = false
@@ -274,6 +275,7 @@ function handleMute() {
         gameOverAudio.muted = false
         winAudio.muted = false
         isMuted = false
+        muteButton.style.backgroundImage = `url(${imgAudioOn})`
     }
 }
 
