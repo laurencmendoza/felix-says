@@ -97,12 +97,16 @@ function handleClick(evt) {
 
     // play audio
     if (playerChoice === 'red') {
+        redBtnAudio.currentTime = 0
         redBtnAudio.play()
     } else if (playerChoice === 'green') {
+        greenBtnAudio.currentTime = 0
         greenBtnAudio.play()
     } else if (playerChoice === 'yellow') {
+        yellowBtnAudio.currentTime = 0
         yellowBtnAudio.play()
     } else if (playerChoice === 'blue') {
+        blueBtnAudio.currentTime = 0
         blueBtnAudio.play()
     }
 }

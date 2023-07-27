@@ -18,6 +18,7 @@
 2. [W3Schools](https://www.w3schools.com/)
 3. [freesimon.org](https://freesimon.org)
 4. [ChatGPT](https://openai.com/blog/chatgpt)
+5. [Stack Overflow](https://stackoverflow.com/questions/13002935/html5-audio-start-over)
 5. [Wikipeida Shades of White](https://en.wikipedia.org/wiki/Shades_of_white)
 6. Audio Design: Nico Mendoza
 7. Talent: Felix Mendoza & Zero Corona
