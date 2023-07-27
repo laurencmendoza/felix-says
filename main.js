@@ -4,17 +4,21 @@ const redBtnAudio = new Audio('./audio/zeroMeow1.mp3')
 const greenBtnAudio = new Audio('./audio/zeroMeow2.mp3')
 const yellowBtnAudio = new Audio('./audio/zeroMeow3.mp3')
 const blueBtnAudio = new Audio('./audio/zeroMeow4.mp3')
+
 const levelUpAudio = new Audio('./audio/collarJingle.mp3')
 const gameOverAudio = new Audio('./audio/felixLongMeow.mp3')
 const winAudio = new Audio('./audio/zeroWinMeow.mp3')
+
 const imgFelixMouthClosed = './imgs/felixMouthClosed.png'
 const imgFelixMouthOpen = './imgs/felixMouthOpen.png'
 const imgFelixSmiling = './imgs/felixSmiling.png'
 const gameOverText = './imgs/gameover.png'
-const winnerText = './imgs/winner.png'
+const levelUpText = './imgs/winner.png'
 const imgAudioOn = './imgs/audioOn.png'
 const imgAudioOff = 'imgs/audioOff.png'
+
 const options = ['red', 'green', 'yellow', 'blue']
+
 let winningScore = 10
 
 /*----- state variables -----*/ 
@@ -61,8 +65,6 @@ function handleStart() {
     computerSeq = []
     playerSeq = []
 
-    renderScore()
-
     meowImgEl.style.visibility = 'hidden'
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
     startOverBtnEl.textContent = 'Start Over'
@@ -70,17 +72,19 @@ function handleStart() {
     simonBtnEls.forEach(function(btn) {
         btn.addEventListener('click', handleClick)
     })
-    
+
     addToComputerSequence()
+    renderScore()
     renderComputerSequence()
 }
 
 function handleClick(evt) {
+    // add the player's choice into an array using button's class
     let playerChoice = evt.target.classList.value
     playerSeq.push(playerChoice)
     compareSequences(playerSeq)
 
-    // play audio
+    // play audio for each button
     if (playerChoice === 'red') {
         redBtnAudio.currentTime = 0
         redBtnAudio.play()
@@ -103,6 +107,7 @@ function addToComputerSequence() {
 }
 
 function compareSequences(arr) {
+    // convert arrays into strings for comparison
     let playerSeqString = arr.toString()
     let comparedComputerSeq = computerSeq.slice(0, arr.length)
     let totalComputerSeqString = computerSeq.toString()
@@ -110,9 +115,7 @@ function compareSequences(arr) {
 
     // comparing current playerSeq to only relevant computerSeq elements
     if (playerSeqString === computerSeqString) {
-        console.log('correct')
     } else {
-        console.log('game over')
         // disable buttons
         simonBtnEls.forEach(function(btn) {
             btn.setAttribute('disabled', 'true')
@@ -125,15 +128,14 @@ function compareSequences(arr) {
     } 
 }
 
-// add one to the score, clear player array, add to the sequence and render the sequence
 function levelUp() {
+    // add one to the score, clear player array, render level up, and render score
     score++
     playerSeq = []
     renderLevelUp()
     renderScore()
 
     // automatically add to computer seq and render seq except for when player reaches winning score
-
     if (score !== winningScore) {
         addToComputerSequence()
         renderComputerSequence()
@@ -142,13 +144,12 @@ function levelUp() {
 
 function renderScore() {
     scoreEl.innerHTML=`Score: ${score}`
+
     // render a win message when score reaches winning score
     if (score === winningScore) {
-        overlayOn()
         winScore.textContent = `Your score: ${score}.`
+        overlayOn()
     }
-    
-    // console.log(`Printing score in renderScore: ${score}`)
 }
 
 function renderComputerSequence() {
@@ -157,14 +158,12 @@ function renderComputerSequence() {
         btn.setAttribute('disabled', 'true')
     })
     
-    // iterate over computer sequence at interval of 1s each value starting with index 0
+    // iterate over computer sequence at interval of 1s
     let index = 0
     const computerSeqInterval = setInterval(logComputerSeq, 1000)
     function logComputerSeq() {
-        
+        // set Felix image to mouth open
         felixImgEl.setAttribute('src', imgFelixMouthOpen)
-        
-        console.log(computerSeq[index])
 
         //set corresponding button to light color when it shows in computerSeq
         simonBtnEls.forEach(function(btn) {
@@ -177,10 +176,8 @@ function renderComputerSequence() {
         function revertColor() {
             simonBtnEls.forEach(function(btn) {
                 btn.style.backgroundColor = `var(--${btn.className})`
-
             })
         }
-
         setTimeout(revertColor, 500)
 
         //play audio that corresponds to button
@@ -194,31 +191,33 @@ function renderComputerSequence() {
             blueBtnAudio.play()
         }
 
-        // increase index value and clear interval and remove disable button attribute when index value reaches end of array
+        // increase index value and when array is finished, clear interval and remove disable button attribute
         index++
         if (index > computerSeq.length) {
             clearInterval(computerSeqInterval)
-            felixImgEl.setAttribute('src', imgFelixMouthClosed)
             simonBtnEls.forEach(function(btn) {
                 btn.removeAttribute('disabled')
             })
-        }
+            felixImgEl.setAttribute('src', imgFelixMouthClosed)
+        } 
     }
 }
 
 function renderLevelUp() {
-    //show a smiling Felix when player gets the whole seq correct
+    // show a smiling Felix
     felixImgEl.setAttribute('src', imgFelixSmiling)
+
+    // change image back to Felix mouth closed after 1s
     function changeFelixImg() {
         felixImgEl.setAttribute('src', imgFelixMouthClosed)
     }
     setTimeout(changeFelixImg, 1000)
 
-    // TO DO: make a happier audio
+    // play collar jingle
     levelUpAudio.play()
 
-    //show winner text
-    meowImgEl.setAttribute('src', winnerText)
+    //show level up text
+    meowImgEl.setAttribute('src', levelUpText)
     meowImgEl.style.visibility = 'visible'
     setTimeout(function() {
         meowImgEl.style.visibility = 'hidden'
@@ -226,19 +225,28 @@ function renderLevelUp() {
 }
 
 function renderGameOver() {
+    // set image of Felix to mouth open and show game over text
     felixImgEl.setAttribute('src', imgFelixMouthOpen)
     meowImgEl.setAttribute('src', gameOverText)
     meowImgEl.style.visibility = 'visible'
+
+    // play Felix's sad meow
     gameOverAudio.play()
 }
 
 function overlayOn() {
+    // play winner meows
     winAudio.play()
+
+    // display overlay
     overlay.style.display = 'block'
 }
 
 function overlayOff() {
+    // hide overlay
     overlay.style.display = 'none'
+
+    // continue game
     addToComputerSequence()
     renderComputerSequence()
 }
