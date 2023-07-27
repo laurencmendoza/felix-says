@@ -52,7 +52,7 @@
 
 ## Getting Started
 
-Click [here](https://laurencmendoza.github.io/felix-says-project-demo/) to test the game!
+Click [here](https://laurencmendoza.github.io/felix-says-project-one/) to test the game!
 
 TIP: Make sure to wait until Felix is done meowing before repeating the sequence! When he is done, you will see his mouth go from open to closed. 
 
