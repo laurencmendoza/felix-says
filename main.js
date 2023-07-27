@@ -1,9 +1,12 @@
 /*----- constants -----*/ 
 
-const redBtnAudio = new Audio('./audio/felixmeow1.mp3'); 
-const greenBtnAudio = new Audio('./audio/felixmeow2.mp3');
-const yellowBtnAudio = new Audio('./audio/felixmeow3.mp3');
-const blueBtnAudio = new Audio('./audio/felixmeow4.mp3');
+const redBtnAudio = new Audio('./audio/zeroMeow1.mp3'); 
+const greenBtnAudio = new Audio('./audio/zeroMeow2.mp3');
+const yellowBtnAudio = new Audio('./audio/zeroMeow3.mp3');
+const blueBtnAudio = new Audio('./audio/zeroMeow4.mp3');
+
+const levelUpAudio = new Audio('./audio/collarJingle.mp3')
+const gameOverAudio = new Audio('./audio/felixLongMeow.mp3')
 
 const imgFelixMouthClosed = './imgs/felixMouthClosed.png'
 const imgFelixMouthOpen = './imgs/felixMouthOpen.png'
@@ -169,7 +172,7 @@ function renderWinner() {
     setTimeout(changeFelixImg, 1000)
 
     // TO DO: make a happier audio
-    // greenBtnAudio.play()
+    levelUpAudio.play()
 
     //show winner text
     meowImgEl.setAttribute('src', winnerText)
@@ -184,7 +187,7 @@ function renderGameOver() {
     felixImgEl.setAttribute('src', imgFelixMouthOpen)
     meowImgEl.setAttribute('src', gameOverText)
     meowImgEl.style.visibility = 'visible'
-    // redBtnAudio.play()
+    gameOverAudio.play()
 }
 
 init()
