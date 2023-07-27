@@ -1,12 +1,13 @@
 /*----- constants -----*/ 
 
-const redBtnAudio = new Audio('./audio/zeroMeow1.mp3'); 
-const greenBtnAudio = new Audio('./audio/zeroMeow2.mp3');
-const yellowBtnAudio = new Audio('./audio/zeroMeow3.mp3');
-const blueBtnAudio = new Audio('./audio/zeroMeow4.mp3');
+const redBtnAudio = new Audio('./audio/zeroMeow1.mp3')
+const greenBtnAudio = new Audio('./audio/zeroMeow2.mp3')
+const yellowBtnAudio = new Audio('./audio/zeroMeow3.mp3')
+const blueBtnAudio = new Audio('./audio/zeroMeow4.mp3')
 
 const levelUpAudio = new Audio('./audio/collarJingle.mp3')
 const gameOverAudio = new Audio('./audio/felixLongMeow.mp3')
+const winAudio = new Audio('./audio/zeroWinMeow.mp3')
 
 const imgFelixMouthClosed = './imgs/felixMouthClosed.png'
 const imgFelixMouthOpen = './imgs/felixMouthOpen.png'
@@ -16,12 +17,18 @@ const winnerText = './imgs/winner.png'
 
 const options = ['red', 'green', 'yellow', 'blue']
 
+const winningScore = 5
+
 /*----- state variables -----*/ 
 
 let score; 
 
 let computerSeq;
 let playerSeq;
+
+let timesWon; 
+
+let isMuted = false 
 
 /*----- cached elements -----*/ 
 const redBtnEl = document.querySelector('.red')
@@ -39,8 +46,17 @@ const message = document.querySelector('.message')
 const felixImgEl = document.querySelector('#felix-img')
 const meowImgEl = document.querySelector('#meow')
 
-/*----- functions -----*/ 
+const overlay = document.getElementById('overlay')
+const winScore = document.getElementById('win-score')
 
+const muteButton = document.getElementById('toggle-audio')
+
+/*----- event listeners -----*/
+
+overlay.addEventListener('click', overlayOff)
+muteButton.addEventListener('click', handleMute)
+
+/*----- functions -----*/ 
 
 function init() {
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
@@ -74,17 +90,16 @@ function handleStart() {
 function handleClick(evt) {
     let playerChoice = evt.target.classList.value
     playerSeq.push(playerChoice)
-    console.log(`player's choice: ${playerChoice}`)
     compareSequences(playerSeq)
 
     // play audio
-    if (evt.target.classList.value === 'red') {
+    if (playerChoice === 'red') {
         redBtnAudio.play()
-    } else if (evt.target.classList.value === 'green') {
+    } else if (playerChoice === 'green') {
         greenBtnAudio.play()
-    } else if (evt.target.classList.value === 'yellow') {
+    } else if (playerChoice === 'yellow') {
         yellowBtnAudio.play()
-    } else if (evt.target.classList.value === 'blue') {
+    } else if (playerChoice === 'blue') {
         blueBtnAudio.play()
     }
 }
@@ -93,7 +108,6 @@ function addToComputerSequence() {
     let randomIndex = Math.floor(Math.random() *4)
     let computerChoice = options[randomIndex]
     computerSeq.push(computerChoice)
-    // console.log(`current computer seq: ${computerSeq}`)
 }
 
 function compareSequences(arr) {
@@ -111,25 +125,38 @@ function compareSequences(arr) {
         simonBtnEls.forEach(function(btn) {
             btn.setAttribute('disabled', 'true')
         })
-
-        
         renderGameOver()
     }
-
-    // once playerSeq is equal to the total computerSeq, add 1 to score and add value to computerSeq, and empty the playerSeq array
+    // once playerSeq is equal to the total computerSeq, level up
     if (playerSeqString === totalComputerSeqString) {
-        console.log('leveling up')
-        score ++
-        renderWinner()
-        renderScore()
+        levelUp()
+    } 
+}
+
+// add one to the score, clear player array, add to the sequence and render the sequence
+function levelUp() {
+    score++
+    playerSeq = []
+    renderLevelUp()
+    renderScore()
+
+    // automatically add to computer seq and render seq except for when player reaches winning score
+
+    if (score !== winningScore) {
         addToComputerSequence()
         renderComputerSequence()
-        playerSeq = []
     }
 }
 
 function renderScore() {
     scoreEl.innerHTML=`Score: ${score}`
+    // render a win message when score reaches winning score
+    if (score === winningScore) {
+        overlayOn()
+        winScore.textContent = `Your score: ${score}.`
+    }
+    
+    // console.log(`Printing score in renderScore: ${score}`)
 }
 
 function renderComputerSequence() {
@@ -187,7 +214,7 @@ function renderComputerSequence() {
     }
 }
 
-function renderWinner() {
+function renderLevelUp() {
     //show a smiling Felix when player gets the whole seq correct
     felixImgEl.setAttribute('src', imgFelixSmiling)
     function changeFelixImg() {
@@ -204,7 +231,6 @@ function renderWinner() {
     setTimeout(function() {
         meowImgEl.style.visibility = 'hidden'
     }, 1000)
-
 }
 
 function renderGameOver() {
@@ -212,6 +238,43 @@ function renderGameOver() {
     meowImgEl.setAttribute('src', gameOverText)
     meowImgEl.style.visibility = 'visible'
     gameOverAudio.play()
+}
+
+function overlayOn() {
+    winAudio.play()
+    overlay.style.display = 'block'
+}
+
+function overlayOff() {
+    overlay.style.display = 'none'
+    addToComputerSequence()
+    renderComputerSequence()
+}
+
+
+
+
+
+function handleMute() {
+    if (isMuted === false) {
+        redBtnAudio.muted = true
+        greenBtnAudio.muted = true
+        yellowBtnAudio.muted = true
+        blueBtnAudio.muted = true
+        levelUpAudio.muted = true
+        gameOverAudio.muted = true
+        winAudio.muted = true
+        isMuted = true
+    } else {
+        redBtnAudio.muted = false
+        greenBtnAudio.muted = false
+        yellowBtnAudio.muted = false
+        blueBtnAudio.muted = false
+        levelUpAudio.muted = false
+        gameOverAudio.muted = false
+        winAudio.muted = false
+        isMuted = false
+    }
 }
 
 init()

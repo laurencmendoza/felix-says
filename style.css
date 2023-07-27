@@ -37,6 +37,12 @@ body {
     text-align: center;
 }
 
+#toggle-audio {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
 /* layout */
 
 .simon {
@@ -137,6 +143,35 @@ header {
     margin: 30px 5% 0 0;
 }
 
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#win-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 24px;
+    text-align: center;
+    /* color: white; */
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    padding: 15px;
+}
+
+/* .overlay-text, #win-text {
+    background-color: darkgray;
+} */
 /* media queries */
 
 @media only screen and (min-width: 375px) {
@@ -170,6 +205,9 @@ header {
     .score {
         font-size: 28px;
     }
+    #win-text {
+        font-size: 36px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -186,6 +224,9 @@ header {
     .score {
         font-size: 36px;
     }
+    #win-text {
+        font-size: 48px;
+    }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -198,6 +239,9 @@ header {
     }
     #felix-img {
         margin: 0 0 0 10%;
+    }
+    #win-text {
+        font-size: 56px;
     }
 }
 @media only screen and (max-height: 830px) {
