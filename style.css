@@ -15,7 +15,6 @@
 /* global styles  */
 
 * {
-    /* border: 1px solid red; */
     box-sizing: border-box;
     background-color: var(--white-smoke);
 }
@@ -63,7 +62,6 @@ body {
 
 .simon > button {
     border: none;
-    padding: 10px;
     margin: 10px;
     border-radius: 15px;
 }
@@ -107,6 +105,15 @@ header {
     grid-area: bottomleft;
 }
 
+#start-over-btn {
+    height: 50px;
+    font-size: 18px;
+    margin: 0 0 0 50px;
+    border-radius: 10px;
+    color: black;
+    font-family: 'Orbitron', sans-serif
+}
+
 #start-over-btn:hover {
     background-color: darkgray;
     color: white;
@@ -128,14 +135,6 @@ header {
     background-color: var(--light-yellow) !important;
 }
 
-#start-over-btn {
-    height: 50px;
-    font-size: 18px;
-    margin: 0 0 0 50px;
-    border-radius: 10px;
-    color: black;
-    font-family: 'Orbitron', sans-serif
-}
 /* images */
 
 #felix-img {
@@ -168,15 +167,11 @@ header {
     left: 50%;
     font-size: 24px;
     text-align: center;
-    /* color: white; */
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     padding: 15px;
 }
 
-/* .overlay-text, #win-text {
-    background-color: darkgray;
-} */
 /* media queries */
 
 @media only screen and (min-width: 375px) {
@@ -253,6 +248,7 @@ header {
         font-size: 56px;
     }
 }
+
 @media only screen and (max-height: 830px) {
     .simon {
         height: 250px;
@@ -280,8 +276,11 @@ header {
 }
 
 @media only screen and (max-height: 600px) {
-    img {
-        visibility: hidden;
+    #felix-img {
+        margin: 0 0 0 10%;
+    }
+    #meow {
+        margin: 0
     }
 }
 
