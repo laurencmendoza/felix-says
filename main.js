@@ -15,7 +15,7 @@ const winnerText = './imgs/winner.png'
 const imgAudioOn = './imgs/audioOn.png'
 const imgAudioOff = 'imgs/audioOff.png'
 const options = ['red', 'green', 'yellow', 'blue']
-const winningScore = 10
+let winningScore = 10
 
 /*----- state variables -----*/ 
 
@@ -33,17 +33,15 @@ const simonBtnEls = document.querySelectorAll('.simon > button')
 
 const startOverBtnEl = document.querySelector('#start-over-btn')
 
-const scoreEl = document.querySelector('.score')
+const muteButton = document.getElementById('toggle-audio')
 
-const message = document.querySelector('.message')
+const scoreEl = document.querySelector('.score')
 
 const felixImgEl = document.querySelector('#felix-img')
 const meowImgEl = document.querySelector('#meow')
 
 const overlay = document.getElementById('overlay')
 const winScore = document.getElementById('win-score')
-
-const muteButton = document.getElementById('toggle-audio')
 
 /*----- event listeners -----*/
 
@@ -61,8 +59,8 @@ function init() {
 function handleStart() {
     score = 0
     renderScore()
-    meowImgEl.style.visibility = 'hidden'
 
+    meowImgEl.style.visibility = 'hidden'
     felixImgEl.setAttribute('src', imgFelixMouthClosed)
 
     simonBtnEls.forEach(function(btn) {
