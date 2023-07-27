@@ -4,8 +4,6 @@
 
 ## Gameplay - Screenshots 
 
-
-
 ## Technologies Used
 
 - HTML
@@ -27,24 +25,10 @@
 
 Click [here](https://laurencmendoza.github.io/felix-says-project-demo/) to test the game!
 
+TIP: Make sure to wait until Felix is done meowing before repeating the sequence! When he is done, you will see his mouth go from open to closed. 
+
 ## Future Features
 
 1. Pause at multiple milestone scores to let the player know their score and give them the option to continue
 2. Add "highest score" feature that keeps track of the longest sequence the player has completed, even after starting over
 3. Have a scoreboard that renders when player hits game over and displays the top 3 highest scores stored so far 
-
-<!-- A README.md file with these sections: 
-
-☐ <Your game's title>: A description of your game. Background info of the game is a nice touch.
-
-☐ Screenshot(s): Images of your actual game.
-
-Note: if you edit your README.md on the github website editor, you can copy and paste image files directly to your markdown.
-
-☐ Technologies Used: List of the technologies used, e.g., JavaScript, HTML, CSS...
-
-☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
-
-☐ Next Steps: Planned future enhancements (icebox items).
-
-Note: Don't underestimate the value of a well crafted README.md. The README.md introduces your project to prospective employers and forms their first impression of your work! -->
