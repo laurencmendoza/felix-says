@@ -2,6 +2,12 @@
 
 'Felix Says' is a game based on the classic memory game 'Simon'. In 'Simon', players see a circle divided into four colored buttons- red, green, yellow, and blue. The colored buttons light up in a sequence, and the player is expected to repeat the sequence by pressing the correct buttons in the correct order. If the player repeats the sequence correctly, 'Simon' will play the sequence again, with one new random value added to the end. The game ends once the player fails to repeat the sequence correctly. 'Felix Says' features Felix the black cat, who meows the sequence for the player to repeat on their own 'Simon' game look-alike. 
 
+## Getting Started
+
+### [Click here to test the game!](https://laurencmendoza.github.io/felix-says-project-one/)
+
+TIP: Make sure to wait until Felix is done meowing before repeating the sequence! When he is done, you will see his mouth go from open to closed. 
+
 ## Gameplay - Screenshots
 
 <h3>Starting Screen</h3>
@@ -49,12 +55,6 @@
 5. [Wikipeida Shades of White](https://en.wikipedia.org/wiki/Shades_of_white)
 6. Audio Design: Nico Mendoza
 7. Talent: Felix Mendoza & Zero Corona
-
-## Getting Started
-
-Click [here](https://laurencmendoza.github.io/felix-says-project-one/) to test the game!
-
-TIP: Make sure to wait until Felix is done meowing before repeating the sequence! When he is done, you will see his mouth go from open to closed. 
 
 ## Future Features
 
